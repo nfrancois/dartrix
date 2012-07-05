@@ -16,21 +16,23 @@ class Dartrix {
   
   CanvasElement _canvas;
   CanvasRenderingContext2D _ctx;
+  num _height;
+  num _width;
   // TODO objet Strip
   List<num> _stripFontSize;
   List<num> _stripX;
   List<num> _stripY;
   List<num> _dY;
   
-  int _startTime = 0;
+  int _startTime;
   
-  Dartrix(){
+  initStrips(){
     _stripFontSize = new List<num>(_STRIPCOUNT);
     _stripX = new List<num>(_STRIPCOUNT);
     _stripY = new List<num>(_STRIPCOUNT);
     _dY = new List<num>(_STRIPCOUNT);
     for (var i = 0; i < _STRIPCOUNT; i++) {
-      _stripX[i] = Math.random()*1265;
+      _stripX[i] = (Math.random()*_width);
       _stripY[i] = -100;
       _dY[i] = (Math.random()*7)+3;
       _stripFontSize[i] =  ((Math.random()*24)+12).toInt(); 
@@ -39,7 +41,7 @@ class Dartrix {
   
   bool draw(int time){
     clear();
-    if(_startTime == 0){
+    if(_startTime == null){
       _startTime = time;
     } else if((time - _startTime)<MESSAGE_DELAY){
       var remainingTime = MESSAGE_DELAY - (time - _startTime);
@@ -51,8 +53,8 @@ class Dartrix {
       _ctx.font = '${size}px MatrixCode';
       _ctx.textBaseline = 'top';
       _ctx.textAlign = 'center';
-      if (_stripY[i] > 1358) {
-        _stripX[i] = Math.random()*_canvas.width;
+      if (_stripY[i] > _height) {
+        _stripX[i] = Math.random()*_width;
         _stripY[i] = -100;
         _dY[i] = (Math.random()*7)+3;
         _stripFontSize[i] = (Math.random()*24)+12;
@@ -98,18 +100,20 @@ class Dartrix {
   showMessage(double alpha){
     _ctx.font = 'bold 75px MatrixCode';
     _ctx.fillStyle = 'rgba(67,199,40, ${alpha})';
-    _ctx.fillText(MESSAGE , _canvas.width/2, _canvas.height/2-100);
+    _ctx.fillText(MESSAGE , _width/2, _height/2-100);
   }
 
   onResize() {
-    _canvas.height = window.screen.height;
-    _canvas.width = window.screen.width;
+    _canvas.height = _height = window.screen.height;
+    _canvas.width = _width = _canvas.width = window.screen.width;
+    //_canvas.width = _width;
   }  
   
   run(){
     _canvas = document.query("#canvas");
     _ctx = _canvas.context2d;
     onResize();
+    initStrips();
     window.on.resize.add((event) => onResize(), true);
     window.requestAnimationFrame(draw);
   }
