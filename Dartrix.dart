@@ -42,7 +42,9 @@ class Dartrix {
     if(_startTime == 0){
       _startTime = time;
     } else if((time - _startTime)<MESSAGE_DELAY){
-      showMessage();
+      var remainingTime = MESSAGE_DELAY - (time - _startTime);
+      var alpha = remainingTime/MESSAGE_DELAY;
+      showMessage(alpha);
     }
     for(var i=0; i<_STRIPCOUNT; i++){
       var size = _stripFontSize[i];
@@ -93,9 +95,9 @@ class Dartrix {
      }
   }
   
-  showMessage(){
-    //_ctx.textBaseline  = 'middle';
+  showMessage(double alpha){
     _ctx.font = 'bold 75px MatrixCode';
+    _ctx.fillStyle = 'rgba(67,199,40, ${alpha})';
     _ctx.fillText(MESSAGE , _canvas.width/2, _canvas.height/2-100);
   }
 
