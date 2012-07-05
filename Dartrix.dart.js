@@ -761,7 +761,7 @@ $$.IllegalJSRegExpException = {"":
 };
 
 $$.Dartrix = {"":
- ["_dY", "_stripY", "_stripX", "_stripFontSize", "_width", "_height", "_ctx", "_canvas", "_letters", "_colors"],
+ ["_startTime", "_dY", "_stripY", "_stripX", "_stripFontSize", "_ctx", "_canvas", "_letters", "_colors"],
  super: "Object",
  run$0: function() {
   this._canvas = $.document().query$1('#canvas');
@@ -775,6 +775,10 @@ $$.Dartrix = {"":
   this._canvas.set$height(t1);
   t1 = $.window().get$screen().get$width();
   this._canvas.set$width(t1);
+ },
+ showMessage$0: function() {
+  this._ctx.set$font('bold 75px MatrixCode');
+  this._ctx.fillText$3('Enter in the Dartrix', $.div(this._canvas.get$width(), 2), $.sub($.div(this._canvas.get$height(), 2), 100));
  },
  drawStrip$2: function(x, y) {
   for (var k = 0; k <= 20; ++k) {
@@ -817,58 +821,69 @@ $$.Dartrix = {"":
   this._ctx.set$shadowColor('#94f475');
  },
  draw$1: function(time) {
+  if (typeof time !== 'number') return this.draw$1$bailout(1, time, 0, 0, 0);
   this.clear$0();
+  var t1 = this._startTime;
+  if (typeof t1 !== 'number') return this.draw$1$bailout(2, time, t1, 0, 0);
+  if (t1 === 0) this._startTime = time;
+  else {
+    time - t1 < 3000 && this.showMessage$0();
+  }
   for (var i = 0; i < 90; ++i) {
-    var t1 = $.S(this._stripFontSize) + '[j]px MatrixCode';
-    this._ctx.set$font(t1);
+    t1 = this._stripFontSize;
+    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(4, t1, i, 0, 0);
+    var t2 = t1.length;
+    if (i < 0 || i >= t2) throw $.ioore(i);
+    var t3 = $.S(t1[i]) + 'px MatrixCode';
+    this._ctx.set$font(t3);
     this._ctx.set$textBaseline('top');
     this._ctx.set$textAlign('center');
     t1 = this._stripY;
-    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(1, i, t1, 0, 0);
-    var t2 = t1.length;
+    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(5, i, t1, 0, 0);
+    t2 = t1.length;
     if (i < 0 || i >= t2) throw $.ioore(i);
-    var t3 = t1[i];
-    if (typeof t3 !== 'number') return this.draw$1$bailout(2, i, t3, 0, 0);
+    t3 = t1[i];
+    if (typeof t3 !== 'number') return this.draw$1$bailout(6, t3, i, 0, 0);
     t3 = t3 > 1358;
     var t4 = this._stripX;
-    if (typeof t4 !== 'object' || t4 === null || ((t4.constructor !== Array || !!t4.immutable$list) && !t4.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(3, i, t4, t3, 0);
+    if (typeof t4 !== 'object' || t4 === null || ((t4.constructor !== Array || !!t4.immutable$list) && !t4.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(7, t4, t3, i, 0);
     if (t3) {
       t1 = $.random();
-      if (typeof t1 !== 'number') return this.draw$1$bailout(4, i, t1, t4, 0);
+      if (typeof t1 !== 'number') return this.draw$1$bailout(8, t4, t1, i, 0);
       t2 = this._canvas.get$width();
-      if (typeof t2 !== 'number') return this.draw$1$bailout(5, i, t1, t4, t2);
+      if (typeof t2 !== 'number') return this.draw$1$bailout(9, t4, t1, t2, i);
       t2 *= t1;
       t1 = t4.length;
       if (i < 0 || i >= t1) throw $.ioore(i);
       t4[i] = t2;
       t2 = this._stripY;
-      if (typeof t2 !== 'object' || t2 === null || ((t2.constructor !== Array || !!t2.immutable$list) && !t2.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(6, i, t2, 0, 0);
+      if (typeof t2 !== 'object' || t2 === null || ((t2.constructor !== Array || !!t2.immutable$list) && !t2.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(10, t2, i, 0, 0);
       t4 = t2.length;
       if (i < 0 || i >= t4) throw $.ioore(i);
       t2[i] = -100;
       t2 = this._dY;
-      if (typeof t2 !== 'object' || t2 === null || ((t2.constructor !== Array || !!t2.immutable$list) && !t2.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(7, i, t2, 0, 0);
+      if (typeof t2 !== 'object' || t2 === null || ((t2.constructor !== Array || !!t2.immutable$list) && !t2.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(11, t2, i, 0, 0);
       t3 = $.random();
-      if (typeof t3 !== 'number') return this.draw$1$bailout(8, i, t3, t2, 0);
+      if (typeof t3 !== 'number') return this.draw$1$bailout(12, t3, t2, i, 0);
       var t5 = t3 * 7 + 3;
       var t6 = t2.length;
       if (i < 0 || i >= t6) throw $.ioore(i);
       t2[i] = t5;
       t5 = this._stripFontSize;
-      if (typeof t5 !== 'object' || t5 === null || ((t5.constructor !== Array || !!t5.immutable$list) && !t5.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(9, i, t5, 0, 0);
+      if (typeof t5 !== 'object' || t5 === null || ((t5.constructor !== Array || !!t5.immutable$list) && !t5.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(13, t5, i, 0, 0);
       t2 = $.random();
-      if (typeof t2 !== 'number') return this.draw$1$bailout(10, i, t5, t2, 0);
+      if (typeof t2 !== 'number') return this.draw$1$bailout(14, t5, i, t2, 0);
       var t7 = t2 * 24 + 12;
       var t8 = t5.length;
       if (i < 0 || i >= t8) throw $.ioore(i);
       t5[i] = t7;
       t7 = this._stripX;
-      if (typeof t7 !== 'string' && (typeof t7 !== 'object' || t7 === null || (t7.constructor !== Array && !t7.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(11, i, t7, 0, 0);
+      if (typeof t7 !== 'string' && (typeof t7 !== 'object' || t7 === null || (t7.constructor !== Array && !t7.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(15, i, t7, 0, 0);
       t5 = t7.length;
       if (i < 0 || i >= t5) throw $.ioore(i);
       t7 = t7[i];
       var t9 = this._stripY;
-      if (typeof t9 !== 'string' && (typeof t9 !== 'object' || t9 === null || (t9.constructor !== Array && !t9.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(12, i, t7, t9, 0);
+      if (typeof t9 !== 'string' && (typeof t9 !== 'object' || t9 === null || (t9.constructor !== Array && !t9.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(16, i, t9, t7, 0);
       var t10 = t9.length;
       if (i < 0 || i >= t10) throw $.ioore(i);
       this.drawStrip$2(t7, t9[i]);
@@ -876,23 +891,23 @@ $$.Dartrix = {"":
       t2 = t4.length;
       if (i < 0 || i >= t2) throw $.ioore(i);
       t4 = t4[i];
-      if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(13, i, t1, t4, 0);
+      if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(17, t1, i, t4, 0);
       t3 = t1.length;
       if (i < 0 || i >= t3) throw $.ioore(i);
       this.drawStrip$2(t4, t1[i]);
     }
     t1 = this._stripY;
-    if (typeof t1 !== 'object' || t1 === null || ((t1.constructor !== Array || !!t1.immutable$list) && !t1.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(14, i, t1, 0, 0);
+    if (typeof t1 !== 'object' || t1 === null || ((t1.constructor !== Array || !!t1.immutable$list) && !t1.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(18, t1, i, 0, 0);
     t2 = this._dY;
-    if (typeof t2 !== 'string' && (typeof t2 !== 'object' || t2 === null || (t2.constructor !== Array && !t2.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(15, i, t1, t2, 0);
+    if (typeof t2 !== 'string' && (typeof t2 !== 'object' || t2 === null || (t2.constructor !== Array && !t2.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(19, t1, t2, i, 0);
     t3 = t2.length;
     if (i < 0 || i >= t3) throw $.ioore(i);
     t2 = t2[i];
-    if (typeof t2 !== 'number') return this.draw$1$bailout(16, i, t2, t1, 0);
+    if (typeof t2 !== 'number') return this.draw$1$bailout(20, t1, t2, i, 0);
     t4 = t1.length;
     if (i < 0 || i >= t4) throw $.ioore(i);
     t5 = t1[i];
-    if (typeof t5 !== 'number') return this.draw$1$bailout(17, i, t2, t5, t1);
+    if (typeof t5 !== 'number') return this.draw$1$bailout(21, t1, t2, t5, i);
     t1[i] = t5 + t2;
   }
   $.window().requestAnimationFrame$1(this.get$draw());
@@ -901,93 +916,122 @@ $$.Dartrix = {"":
  draw$1$bailout: function(state, env0, env1, env2, env3) {
   switch (state) {
     case 1:
-      i = env0;
-      t1 = env1;
+      var time = env0;
       break;
     case 2:
-      i = env0;
+      time = env0;
       t1 = env1;
       break;
     case 3:
-      i = env0;
-      t2 = env1;
-      t1 = env2;
+      time = env0;
+      t1 = env1;
       break;
     case 4:
-      i = env0;
-      t1 = env1;
-      t2 = env2;
+      t1 = env0;
+      i = env1;
       break;
     case 5:
       i = env0;
       t1 = env1;
-      t2 = env2;
-      t3 = env3;
       break;
     case 6:
-      i = env0;
-      t2 = env1;
+      t1 = env0;
+      i = env1;
       break;
     case 7:
-      i = env0;
-      t2 = env1;
+      t2 = env0;
+      t1 = env1;
+      i = env2;
       break;
     case 8:
-      i = env0;
-      t4 = env1;
-      t2 = env2;
+      t2 = env0;
+      t1 = env1;
+      i = env2;
       break;
     case 9:
-      i = env0;
-      t2 = env1;
+      t2 = env0;
+      t1 = env1;
+      t3 = env2;
+      i = env3;
       break;
     case 10:
-      i = env0;
-      t2 = env1;
-      t5 = env2;
+      t2 = env0;
+      i = env1;
       break;
     case 11:
-      i = env0;
-      t2 = env1;
+      t2 = env0;
+      i = env1;
       break;
     case 12:
-      i = env0;
+      t4 = env0;
       t2 = env1;
-      t6 = env2;
+      i = env2;
       break;
     case 13:
-      i = env0;
-      t2 = env1;
-      t1 = env2;
+      t2 = env0;
+      i = env1;
       break;
     case 14:
-      i = env0;
-      t1 = env1;
+      t2 = env0;
+      i = env1;
+      t5 = env2;
       break;
     case 15:
       i = env0;
-      t1 = env1;
-      t2 = env2;
+      t2 = env1;
       break;
     case 16:
       i = env0;
-      t2 = env1;
-      t1 = env2;
+      t6 = env1;
+      t2 = env2;
       break;
     case 17:
-      i = env0;
+      t2 = env0;
+      i = env1;
+      t1 = env2;
+      break;
+    case 18:
+      t1 = env0;
+      i = env1;
+      break;
+    case 19:
+      t1 = env0;
+      t2 = env1;
+      i = env2;
+      break;
+    case 20:
+      t1 = env0;
+      t2 = env1;
+      i = env2;
+      break;
+    case 21:
+      t1 = env0;
       t2 = env1;
       t3 = env2;
-      t1 = env3;
+      i = env3;
       break;
   }
   switch (state) {
     case 0:
-      this.clear$0();
-      var i = 0;
     case 1:
+      state = 0;
+      this.clear$0();
+      var t1 = this._startTime;
     case 2:
+      state = 0;
     case 3:
+      if ((state == 0 && $.eqB(t1, 0))) {
+        this._startTime = time;
+      } else {
+        switch (state) {
+          case 0:
+            t1 = this._startTime;
+          case 3:
+            state = 0;
+            $.ltB($.sub(time, t1), 3000) && this.showMessage$0();
+        }
+      }
+      var i = 0;
     case 4:
     case 5:
     case 6:
@@ -1002,68 +1046,75 @@ $$.Dartrix = {"":
     case 15:
     case 16:
     case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
       L0: while (true) {
         switch (state) {
           case 0:
             if (!(i < 90)) break L0;
-            var t1 = $.S(this._stripFontSize) + '[j]px MatrixCode';
-            this._ctx.set$font(t1);
+            t1 = this._stripFontSize;
+          case 4:
+            state = 0;
+            var t2 = $.S($.index(t1, i)) + 'px MatrixCode';
+            this._ctx.set$font(t2);
             this._ctx.set$textBaseline('top');
             this._ctx.set$textAlign('center');
             t1 = this._stripY;
-          case 1:
+          case 5:
             state = 0;
             t1 = $.index(t1, i);
-          case 2:
+          case 6:
             state = 0;
             t1 = $.gtB(t1, 1358);
-            var t2 = this._stripX;
-          case 3:
-            state = 0;
-          case 4:
-          case 5:
-          case 6:
+            t2 = this._stripX;
           case 7:
+            state = 0;
           case 8:
           case 9:
           case 10:
           case 11:
           case 12:
           case 13:
-            if (state == 4 || state == 5 || state == 6 || state == 7 || state == 8 || state == 9 || state == 10 || state == 11 || state == 12 || (state == 0 && t1)) {
+          case 14:
+          case 15:
+          case 16:
+          case 17:
+            if (state == 8 || state == 9 || state == 10 || state == 11 || state == 12 || state == 13 || state == 14 || state == 15 || state == 16 || (state == 0 && t1)) {
               switch (state) {
                 case 0:
                   t1 = $.random();
-                case 4:
+                case 8:
                   state = 0;
                   var t3 = this._canvas.get$width();
-                case 5:
+                case 9:
                   state = 0;
                   $.indexSet(t2, i, $.mul(t1, t3));
                   t2 = this._stripY;
-                case 6:
+                case 10:
                   state = 0;
                   $.indexSet(t2, i, -100);
                   t2 = this._dY;
-                case 7:
+                case 11:
                   state = 0;
                   var t4 = $.random();
-                case 8:
+                case 12:
                   state = 0;
                   $.indexSet(t2, i, $.add($.mul(t4, 7), 3));
                   t2 = this._stripFontSize;
-                case 9:
+                case 13:
                   state = 0;
                   var t5 = $.random();
-                case 10:
+                case 14:
                   state = 0;
                   $.indexSet(t2, i, $.add($.mul(t5, 24), 12));
                   t2 = this._stripX;
-                case 11:
+                case 15:
                   state = 0;
                   t2 = $.index(t2, i);
                   var t6 = this._stripY;
-                case 12:
+                case 16:
                   state = 0;
                   this.drawStrip$2(t2, $.index(t6, i));
               }
@@ -1072,22 +1123,22 @@ $$.Dartrix = {"":
                 case 0:
                   t1 = $.index(t2, i);
                   t2 = this._stripY;
-                case 13:
+                case 17:
                   state = 0;
                   this.drawStrip$2(t1, $.index(t2, i));
               }
             }
             t1 = this._stripY;
-          case 14:
+          case 18:
             state = 0;
             t2 = this._dY;
-          case 15:
+          case 19:
             state = 0;
             t2 = $.index(t2, i);
-          case 16:
+          case 20:
             state = 0;
             t3 = $.index(t1, i);
-          case 17:
+          case 21:
             state = 0;
             $.indexSet(t1, i, $.add(t3, t2));
             ++i;
@@ -1117,7 +1168,7 @@ $$.Dartrix = {"":
     $.indexSet(this._stripX, i, $.mul($.random(), 1265));
     $.indexSet(this._stripY, i, -100);
     $.indexSet(this._dY, i, $.add($.mul($.random(), 7), 3));
-    $.indexSet(this._stripFontSize, i, $.add($.mul($.random(), 24), 12));
+    $.indexSet(this._stripFontSize, i, $.toInt($.add($.mul($.random(), 24), 12)));
   }
  }
 };
@@ -1514,6 +1565,10 @@ $call$1: function(p0) { return this.self[this.target](p0); }
 $.mul$slow = function(a, b) {
   if ($.checkNumbers(a, b) === true) return a * b;
   return a.operator$mul$1(b);
+};
+
+$.NoSuchMethodException$4 = function(_receiver, _functionName, _arguments, existingArgumentNames) {
+  return new $.NoSuchMethodException(existingArgumentNames, _arguments, _functionName, _receiver);
 };
 
 $.iae = function(argument) {
@@ -2177,6 +2232,14 @@ $.checkString = function(value) {
   return value;
 };
 
+$.div = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a / b) : $.div$slow(a, b);
+};
+
+$.add = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
+};
+
 $.dynamicFunction = function(name$) {
   var f = (Object.prototype[name$]);
   if (!(f == null) && (!!f.methods)) return f.methods;
@@ -2187,10 +2250,6 @@ $.dynamicFunction = function(name$) {
   bind.methods = methods;
   $.defineProperty((Object.prototype), name$, bind);
   return methods;
-};
-
-$.add = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
 };
 
 $.geB = function(a, b) {
@@ -2435,7 +2494,7 @@ $._MessagePortEventsImpl$1 = function(_ptr) {
 };
 
 $.Dartrix$0 = function() {
-  var t1 = new $.Dartrix(null, null, null, null, null, null, null, null, null, null);
+  var t1 = new $.Dartrix(0, null, null, null, null, null, null, null, null);
   t1.Dartrix$0();
   return t1;
 };
@@ -2538,6 +2597,11 @@ $.substring$1 = function(receiver, startIndex) {
   return $.substring$2(receiver, startIndex, null);
 };
 
+$.div$slow = function(a, b) {
+  if ($.checkNumbers(a, b) === true) return a / b;
+  return a.operator$div$1(b);
+};
+
 $._FileReaderEventsImpl$1 = function(_ptr) {
   return new $._FileReaderEventsImpl(_ptr);
 };
@@ -2576,21 +2640,6 @@ $.eqNullB = function(a) {
     }
   }
   return false;
-};
-
-$.indexOf = function(a, element, startIndex, endIndex) {
-  if (typeof a !== 'string' && (typeof a !== 'object' || a === null || (a.constructor !== Array && !a.is$JavaScriptIndexingBehavior()))) return $.indexOf$bailout(1, a, element, startIndex, endIndex);
-  if (typeof endIndex !== 'number') return $.indexOf$bailout(1, a, element, startIndex, endIndex);
-  if ($.geB(startIndex, a.length)) return -1;
-  if ($.ltB(startIndex, 0)) startIndex = 0;
-  if (typeof startIndex !== 'number') return $.indexOf$bailout(2, a, element, startIndex, endIndex);
-  for (var i = startIndex; i < endIndex; ++i) {
-    if (i !== (i | 0)) throw $.iae(i);
-    var t1 = a.length;
-    if (i < 0 || i >= t1) throw $.ioore(i);
-    if ($.eqB(a[i], element)) return i;
-  }
-  return -1;
 };
 
 $._FrameSetElementEventsImpl$1 = function(_ptr) {
@@ -2685,8 +2734,19 @@ $.IllegalArgumentException$1 = function(arg) {
   return new $.IllegalArgumentException(arg);
 };
 
-$.NoSuchMethodException$4 = function(_receiver, _functionName, _arguments, existingArgumentNames) {
-  return new $.NoSuchMethodException(existingArgumentNames, _arguments, _functionName, _receiver);
+$.indexOf = function(a, element, startIndex, endIndex) {
+  if (typeof a !== 'string' && (typeof a !== 'object' || a === null || (a.constructor !== Array && !a.is$JavaScriptIndexingBehavior()))) return $.indexOf$bailout(1, a, element, startIndex, endIndex);
+  if (typeof endIndex !== 'number') return $.indexOf$bailout(1, a, element, startIndex, endIndex);
+  if ($.geB(startIndex, a.length)) return -1;
+  if ($.ltB(startIndex, 0)) startIndex = 0;
+  if (typeof startIndex !== 'number') return $.indexOf$bailout(2, a, element, startIndex, endIndex);
+  for (var i = startIndex; i < endIndex; ++i) {
+    if (i !== (i | 0)) throw $.iae(i);
+    var t1 = a.length;
+    if (i < 0 || i >= t1) throw $.ioore(i);
+    if ($.eqB(a[i], element)) return i;
+  }
+  return -1;
 };
 
 $._MediaElementEventsImpl$1 = function(_ptr) {

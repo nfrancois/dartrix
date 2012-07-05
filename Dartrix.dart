@@ -7,7 +7,8 @@ void main() {
 }
 
 final num _STRIPCOUNT = 90;
-
+final String MESSAGE = "Enter in the Dartrix";
+final num MESSAGE_DELAY = 3000;
 class Dartrix {
   
   List<String> _colors;
@@ -15,13 +16,15 @@ class Dartrix {
 
   CanvasElement _canvas;
   CanvasRenderingContext2D _ctx;
-  num _height;
-  num _width;
+  //num _height;
+  //num _width;
   // TODO objet Strip
   List<num> _stripFontSize;
   List<num> _stripX;
   List<num> _stripY;
   List<num> _dY;
+  
+  int _startTime = 0;
   
   Dartrix(){
     _colors =  ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
@@ -34,17 +37,22 @@ class Dartrix {
       _stripX[i] = Math.random()*1265;
       _stripY[i] = -100;
       _dY[i] = (Math.random()*7)+3;
-      _stripFontSize[i] =  (Math.random()*24)+12; 
+      _stripFontSize[i] =  ((Math.random()*24)+12).toInt(); 
     }
   }
   
   bool draw(int time){
     clear();
+    if(_startTime == 0){
+      _startTime = time;
+    } else if((time - _startTime)<MESSAGE_DELAY){
+      showMessage();
+    }
     for(var i=0; i<_STRIPCOUNT; i++){
-      _ctx.font = '$_stripFontSize[j]px MatrixCode';
+      var size = _stripFontSize[i];
+      _ctx.font = '${size}px MatrixCode';
       _ctx.textBaseline = 'top';
       _ctx.textAlign = 'center';
-      
       if (_stripY[i] > 1358) {
         _stripX[i] = Math.random()*_canvas.width;
         _stripY[i] = -100;
@@ -61,7 +69,6 @@ class Dartrix {
   }
   
   clear(){
-    // clear the canvas and set the properties
     _ctx.clearRect(0, 0, _canvas.width, _canvas.height);
     _ctx.shadowOffsetX = _ctx.shadowOffsetY = 0;
     _ctx.shadowBlur = 8;
@@ -88,6 +95,12 @@ class Dartrix {
       _ctx.fillText(randChar, x, y);
       y -= _stripFontSize[k];
      }
+  }
+  
+  showMessage(){
+    //_ctx.textBaseline  = 'middle';
+    _ctx.font = 'bold 75px MatrixCode';
+    _ctx.fillText(MESSAGE , _canvas.width/2, _canvas.height/2-100);
   }
 
   onResize() {
