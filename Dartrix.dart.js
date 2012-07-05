@@ -298,7 +298,7 @@ $$.HashSetImplementation = {"":
  forEach$1: function(f) {
   var t1 = ({});
   t1.f_1 = f;
-  $.forEach(this._backingMap, new $.Closure3(t1));
+  $.forEach(this._backingMap, new $.Closure4(t1));
  },
  contains$1: function(value) {
   return this._backingMap.containsKey$1(value);
@@ -583,7 +583,7 @@ $$.ListIterator = {"":
  }
 };
 
-$$.Closure4 = {"":
+$$.Closure5 = {"":
  [],
  super: "Object",
  toString$0: function() {
@@ -766,7 +766,15 @@ $$.Dartrix = {"":
  run$0: function() {
   this._canvas = $.document().query$1('#canvas');
   this._ctx = this._canvas.get$context2d();
+  this.onResize$0();
+  $.window().get$on().get$resize().add$2(new $.Closure(this), true);
   $.window().requestAnimationFrame$1(this.get$draw());
+ },
+ onResize$0: function() {
+  var t1 = $.window().get$screen().get$height();
+  this._canvas.set$height(t1);
+  t1 = $.window().get$screen().get$width();
+  this._canvas.set$width(t1);
  },
  drawStrip$2: function(x, y) {
   for (var k = 0; k <= 20; ++k) {
@@ -1089,7 +1097,7 @@ $$.Dartrix = {"":
       return true;
   }
  },
- get$draw: function() { return new $.Closure5(this, 'draw$1'); },
+ get$draw: function() { return new $.Closure6(this, 'draw$1'); },
  Dartrix$0: function() {
   this._colors = ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
   this._letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -1112,6 +1120,226 @@ $$.Dartrix = {"":
     $.indexSet(this._stripFontSize, i, $.add($.mul($.random(), 24), 12));
   }
  }
+};
+
+$$._AbstractWorkerEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._AudioContextEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._BatteryManagerEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._BodyElementEventsImpl = {"":
+ ["_ptr"],
+ super: "_ElementEventsImpl",
+ get$resize: function() {
+  return this.operator$index$1('resize');
+ }
+};
+
+$$._DOMApplicationCacheEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._DedicatedWorkerContextEventsImpl = {"":
+ ["_ptr"],
+ super: "_WorkerContextEventsImpl"
+};
+
+$$._DeprecatedPeerConnectionEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._DocumentEventsImpl = {"":
+ ["_ptr"],
+ super: "_ElementEventsImpl"
+};
+
+$$._ElementEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._EventSourceEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._EventsImpl = {"":
+ ["_ptr"],
+ super: "Object",
+ operator$index$1: function(type) {
+  return $._EventListenerListImpl$2(this._ptr, type);
+ }
+};
+
+$$._EventListenerListImpl = {"":
+ ["_type", "_ptr"],
+ super: "Object",
+ _add$2: function(listener, useCapture) {
+  this._ptr.$dom_addEventListener$3(this._type, listener, useCapture);
+ },
+ add$2: function(listener, useCapture) {
+  this._add$2(listener, useCapture);
+  return this;
+ },
+ add$1: function(listener) {
+  return this.add$2(listener,false)
+}
+};
+
+$$._FileReaderEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._FileWriterEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._FrameSetElementEventsImpl = {"":
+ ["_ptr"],
+ super: "_ElementEventsImpl",
+ get$resize: function() {
+  return this.operator$index$1('resize');
+ }
+};
+
+$$._IDBDatabaseEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._IDBRequestEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._IDBTransactionEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._IDBVersionChangeRequestEventsImpl = {"":
+ ["_ptr"],
+ super: "_IDBRequestEventsImpl"
+};
+
+$$._InputElementEventsImpl = {"":
+ ["_ptr"],
+ super: "_ElementEventsImpl"
+};
+
+$$._JavaScriptAudioNodeEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._MediaElementEventsImpl = {"":
+ ["_ptr"],
+ super: "_ElementEventsImpl"
+};
+
+$$._MediaStreamEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._MessagePortEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._NotificationEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._PeerConnection00EventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._SVGElementInstanceEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl",
+ get$resize: function() {
+  return this.operator$index$1('resize');
+ }
+};
+
+$$._SharedWorkerContextEventsImpl = {"":
+ ["_ptr"],
+ super: "_WorkerContextEventsImpl"
+};
+
+$$._SpeechRecognitionEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._TextTrackEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._TextTrackCueEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._TextTrackListEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._WebSocketEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._WindowEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl",
+ get$resize: function() {
+  return this.operator$index$1('resize');
+ }
+};
+
+$$._WorkerEventsImpl = {"":
+ ["_ptr"],
+ super: "_AbstractWorkerEventsImpl"
+};
+
+$$._WorkerContextEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._XMLHttpRequestEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._XMLHttpRequestUploadEventsImpl = {"":
+ ["_ptr"],
+ super: "_EventsImpl"
+};
+
+$$._IDBOpenDBRequestEventsImpl = {"":
+ ["_ptr"],
+ super: "_IDBRequestEventsImpl"
 };
 
 $$._FixedSizeListIterator = {"":
@@ -1216,34 +1444,42 @@ $$._VariableSizeListIterator = {"":
 };
 
 $$.Closure = {"":
- ["box_0"],
- super: "Closure4",
- $call$0: function() {
-  return this.box_0.closure_1.$call$0();
+ ["this_0"],
+ super: "Closure5",
+ $call$1: function(event$) {
+  return this.this_0.onResize$0();
  }
 };
 
 $$.Closure0 = {"":
  ["box_0"],
- super: "Closure4",
+ super: "Closure5",
+ $call$0: function() {
+  return this.box_0.closure_1.$call$0();
+ }
+};
+
+$$.Closure1 = {"":
+ ["box_0"],
+ super: "Closure5",
  $call$0: function() {
   var t1 = this.box_0;
   return t1.closure_1.$call$1(t1.arg1_2);
  }
 };
 
-$$.Closure1 = {"":
+$$.Closure2 = {"":
  ["box_0"],
- super: "Closure4",
+ super: "Closure5",
  $call$0: function() {
   var t1 = this.box_0;
   return t1.closure_1.$call$2(t1.arg1_2, t1.arg2_3);
  }
 };
 
-$$.Closure2 = {"":
+$$.Closure3 = {"":
  ["box_0"],
- super: "Closure4",
+ super: "Closure5",
  $call$2: function(k, v) {
   var t1 = this.box_0;
   t1.first_3 !== true && $.add$1(t1.result_1, ', ');
@@ -1256,15 +1492,15 @@ $$.Closure2 = {"":
  }
 };
 
-$$.Closure3 = {"":
+$$.Closure4 = {"":
  ["box_0"],
- super: "Closure4",
+ super: "Closure5",
  $call$2: function(key, value) {
   this.box_0.f_1.$call$1(key);
  }
 };
 
-$$.Closure4 = {"":
+$$.Closure5 = {"":
  [],
  super: "Object",
  toString$0: function() {
@@ -1272,7 +1508,7 @@ $$.Closure4 = {"":
  }
 };
 
-Isolate.$defineClass('Closure5', 'Closure4', ['self', 'target'], {
+Isolate.$defineClass('Closure6', 'Closure5', ['self', 'target'], {
 $call$1: function(p0) { return this.self[this.target](p0); }
 });
 $.mul$slow = function(a, b) {
@@ -1282,6 +1518,10 @@ $.mul$slow = function(a, b) {
 
 $.iae = function(argument) {
   throw $.captureStackTrace($.IllegalArgumentException$1(argument));
+};
+
+$._AudioContextEventsImpl$1 = function(_ptr) {
+  return new $._AudioContextEventsImpl(_ptr);
 };
 
 $.floor = function(receiver) {
@@ -1417,6 +1657,10 @@ $.checkNum = function(value) {
   return value;
 };
 
+$._IDBOpenDBRequestEventsImpl$1 = function(_ptr) {
+  return new $._IDBOpenDBRequestEventsImpl(_ptr);
+};
+
 $.typeNameInIE = function(obj) {
   var name$ = $.constructorNameFallback(obj);
   if ($.eqB(name$, 'Window')) return 'DOMWindow';
@@ -1449,6 +1693,10 @@ $.regExpMatchStart = function(m) {
   return m.index;
 };
 
+$._WorkerEventsImpl$1 = function(_ptr) {
+  return new $._WorkerEventsImpl(_ptr);
+};
+
 $.ltB = function(a, b) {
   if (typeof a === 'number' && typeof b === 'number') var t1 = (a < b);
   else {
@@ -1462,11 +1710,6 @@ $.NullPointerException$2 = function(functionName, arguments$) {
   return new $.NullPointerException(arguments$, functionName);
 };
 
-$.clear = function(receiver) {
-  if ($.isJsArray(receiver) !== true) return receiver.clear$0();
-  $.set$length(receiver, 0);
-};
-
 $.JSSyntaxRegExp$_globalVersionOf$1 = function(other) {
   var t1 = other.get$pattern();
   var t2 = other.get$multiLine();
@@ -1478,6 +1721,11 @@ $.JSSyntaxRegExp$_globalVersionOf$1 = function(other) {
 $.tdiv = function(a, b) {
   if ($.checkNumbers(a, b) === true) return $.truncate((a) / (b));
   return a.operator$tdiv$1(b);
+};
+
+$.clear = function(receiver) {
+  if ($.isJsArray(receiver) !== true) return receiver.clear$0();
+  $.set$length(receiver, 0);
 };
 
 $.convertDartClosureToJS = function(closure, arity) {
@@ -1512,10 +1760,18 @@ $.concatAll = function(strings) {
   return $.stringJoinUnchecked($._toJsStringArray(strings), '');
 };
 
+$._InputElementEventsImpl$1 = function(_ptr) {
+  return new $._InputElementEventsImpl(_ptr);
+};
+
 $.S = function(value) {
   var res = $.toString(value);
   if (!(typeof res === 'string')) throw $.captureStackTrace($.IllegalArgumentException$1(value));
   return res;
+};
+
+$._TextTrackListEventsImpl$1 = function(_ptr) {
+  return new $._TextTrackListEventsImpl(_ptr);
 };
 
 $._dynamicMetadata = function(table) {
@@ -1529,6 +1785,10 @@ $._dynamicMetadata0 = function() {
     $._dynamicMetadata(t1);
   }
   return $dynamicMetadata;
+};
+
+$._DeprecatedPeerConnectionEventsImpl$1 = function(_ptr) {
+  return new $._DeprecatedPeerConnectionEventsImpl(_ptr);
 };
 
 $.shr = function(a, b) {
@@ -1596,6 +1856,10 @@ $.indexSet = function(a, index, value) {
   $.indexSet$slow(a, index, value);
 };
 
+$._DOMApplicationCacheEventsImpl$1 = function(_ptr) {
+  return new $._DOMApplicationCacheEventsImpl(_ptr);
+};
+
 $.ExceptionImplementation$1 = function(msg) {
   return new $.ExceptionImplementation(msg);
 };
@@ -1609,10 +1873,14 @@ $.invokeClosure = function(closure, isolate, numberOfArguments, arg1, arg2) {
   t1.arg2_3 = arg2;
   t1.arg1_2 = arg1;
   t1.closure_1 = closure;
-  if ($.eqB(numberOfArguments, 0)) return new $.Closure(t1).$call$0();
-  if ($.eqB(numberOfArguments, 1)) return new $.Closure0(t1).$call$0();
-  if ($.eqB(numberOfArguments, 2)) return new $.Closure1(t1).$call$0();
+  if ($.eqB(numberOfArguments, 0)) return new $.Closure0(t1).$call$0();
+  if ($.eqB(numberOfArguments, 1)) return new $.Closure1(t1).$call$0();
+  if ($.eqB(numberOfArguments, 2)) return new $.Closure2(t1).$call$0();
   throw $.captureStackTrace($.ExceptionImplementation$1('Unsupported number of arguments for wrapped closure'));
+};
+
+$._EventListenerListImpl$2 = function(_ptr, _type) {
+  return new $._EventListenerListImpl(_type, _ptr);
 };
 
 $.stringJoinUnchecked = function(array, separator) {
@@ -1621,6 +1889,10 @@ $.stringJoinUnchecked = function(array, separator) {
 
 $.gt = function(a, b) {
   return typeof a === 'number' && typeof b === 'number' ? (a > b) : $.gt$slow(a, b);
+};
+
+$._WindowEventsImpl$1 = function(_ptr) {
+  return new $._WindowEventsImpl(_ptr);
 };
 
 $.buildDynamicMetadata = function(inputTable) {
@@ -1659,9 +1931,8 @@ $.random = function() {
   return $.random0();
 };
 
-$.contains$1 = function(receiver, other) {
-  if (!(typeof receiver === 'string')) return receiver.contains$1(other);
-  return $.contains$2(receiver, other, 0);
+$._EventSourceEventsImpl$1 = function(_ptr) {
+  return new $._EventSourceEventsImpl(_ptr);
 };
 
 $.random0 = function() {
@@ -1670,6 +1941,15 @@ $.random0 = function() {
 
 $.mul = function(a, b) {
   return typeof a === 'number' && typeof b === 'number' ? (a * b) : $.mul$slow(a, b);
+};
+
+$._NotificationEventsImpl$1 = function(_ptr) {
+  return new $._NotificationEventsImpl(_ptr);
+};
+
+$.contains$1 = function(receiver, other) {
+  if (!(typeof receiver === 'string')) return receiver.contains$1(other);
+  return $.contains$2(receiver, other, 0);
 };
 
 $.lt$slow = function(a, b) {
@@ -1738,10 +2018,22 @@ $.removeLast = function(receiver) {
   return receiver.removeLast$0();
 };
 
+$._PeerConnection00EventsImpl$1 = function(_ptr) {
+  return new $._PeerConnection00EventsImpl(_ptr);
+};
+
+$._WorkerContextEventsImpl$1 = function(_ptr) {
+  return new $._WorkerContextEventsImpl(_ptr);
+};
+
 $.contains$2 = function(receiver, other, startIndex) {
   if (!(typeof receiver === 'string')) return receiver.contains$2(other, startIndex);
   $.checkNull(other);
   return $.stringContainsUnchecked(receiver, other, startIndex);
+};
+
+$._DocumentEventsImpl$1 = function(_ptr) {
+  return new $._DocumentEventsImpl(_ptr);
 };
 
 $.regExpTest = function(regExp, str) {
@@ -1781,6 +2073,14 @@ $.IndexOutOfRangeException$1 = function(_index) {
   return new $.IndexOutOfRangeException(_index);
 };
 
+$._TextTrackEventsImpl$1 = function(_ptr) {
+  return new $._TextTrackEventsImpl(_ptr);
+};
+
+$._EventsImpl$1 = function(_ptr) {
+  return new $._EventsImpl(_ptr);
+};
+
 $.charCodeAt = function(receiver, index) {
   if (typeof receiver === 'string') {
     if (!(typeof index === 'number')) throw $.captureStackTrace($.IllegalArgumentException$1(index));
@@ -1791,21 +2091,24 @@ $.charCodeAt = function(receiver, index) {
   return receiver.charCodeAt$1(index);
 };
 
+$._BatteryManagerEventsImpl$1 = function(_ptr) {
+  return new $._BatteryManagerEventsImpl(_ptr);
+};
+
 $.HashSetImplementation$0 = function() {
   var t1 = new $.HashSetImplementation(null);
   t1.HashSetImplementation$0();
   return t1;
 };
 
+$._IDBRequestEventsImpl$1 = function(_ptr) {
+  return new $._IDBRequestEventsImpl(_ptr);
+};
+
 $.stringSplitUnchecked = function(receiver, pattern) {
   if (typeof pattern === 'string') return receiver.split(pattern);
   if (typeof pattern === 'object' && pattern !== null && !!pattern.is$JSSyntaxRegExp) return receiver.split($.regExpGetNative(pattern));
   throw $.captureStackTrace('StringImplementation.split(Pattern) UNIMPLEMENTED');
-};
-
-$.isEmpty = function(receiver) {
-  if (typeof receiver === 'string' || $.isJsArray(receiver) === true) return receiver.length === 0;
-  return receiver.isEmpty$0();
 };
 
 $.checkGrowable = function(list, reason) {
@@ -1820,6 +2123,18 @@ $.toInt = function(receiver) {
   return (truncated == -0.0) ? 0 : truncated;
 };
 
+$._SpeechRecognitionEventsImpl$1 = function(_ptr) {
+  return new $._SpeechRecognitionEventsImpl(_ptr);
+};
+
+$._SVGElementInstanceEventsImpl$1 = function(_ptr) {
+  return new $._SVGElementInstanceEventsImpl(_ptr);
+};
+
+$._WebSocketEventsImpl$1 = function(_ptr) {
+  return new $._WebSocketEventsImpl(_ptr);
+};
+
 $.collectionToString = function(c) {
   var result = $.StringBufferImpl$1('');
   $._emitCollection(c, result, $.List(null));
@@ -1828,6 +2143,10 @@ $.collectionToString = function(c) {
 
 $.MetaInfo$3 = function(tag, tags, set) {
   return new $.MetaInfo(set, tags, tag);
+};
+
+$._MediaStreamEventsImpl$1 = function(_ptr) {
+  return new $._MediaStreamEventsImpl(_ptr);
 };
 
 $.add$1 = function(receiver, value) {
@@ -1870,6 +2189,10 @@ $.dynamicFunction = function(name$) {
   return methods;
 };
 
+$.add = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
+};
+
 $.geB = function(a, b) {
   if (typeof a === 'number' && typeof b === 'number') var t1 = (a >= b);
   else {
@@ -1879,8 +2202,9 @@ $.geB = function(a, b) {
   return t1;
 };
 
-$.add = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
+$.isEmpty = function(receiver) {
+  if (typeof receiver === 'string' || $.isJsArray(receiver) === true) return receiver.length === 0;
+  return receiver.isEmpty$0();
 };
 
 $.stringContainsUnchecked = function(receiver, other, startIndex) {
@@ -1957,19 +2281,15 @@ $.gt$slow = function(a, b) {
   return a.operator$gt$1(b);
 };
 
-$.typeNameInFirefox = function(obj) {
-  var name$ = $.constructorNameFallback(obj);
-  if ($.eqB(name$, 'Window')) return 'DOMWindow';
-  if ($.eqB(name$, 'Document')) return 'HTMLDocument';
-  if ($.eqB(name$, 'XMLDocument')) return 'Document';
-  if ($.eqB(name$, 'WorkerMessageEvent')) return 'MessageEvent';
-  return name$;
-};
-
 $.forEach0 = function(iterable, f) {
   for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
     f.$call$1(t1.next$0());
   }
+};
+
+$.forEach = function(receiver, f) {
+  if ($.isJsArray(receiver) !== true) return receiver.forEach$1(f);
+  return $.forEach0(receiver, f);
 };
 
 $.regExpMakeNative = function(regExp, global) {
@@ -1990,14 +2310,18 @@ $.regExpMakeNative = function(regExp, global) {
   }
 };
 
-$.forEach = function(receiver, f) {
-  if ($.isJsArray(receiver) !== true) return receiver.forEach$1(f);
-  return $.forEach0(receiver, f);
-};
-
 $.iterator = function(receiver) {
   if ($.isJsArray(receiver) === true) return $.ListIterator$1(receiver);
   return receiver.iterator$0();
+};
+
+$.typeNameInFirefox = function(obj) {
+  var name$ = $.constructorNameFallback(obj);
+  if ($.eqB(name$, 'Window')) return 'DOMWindow';
+  if ($.eqB(name$, 'Document')) return 'HTMLDocument';
+  if ($.eqB(name$, 'XMLDocument')) return 'Document';
+  if ($.eqB(name$, 'WorkerMessageEvent')) return 'MessageEvent';
+  return name$;
 };
 
 $.BadNumberFormatException$1 = function(_s) {
@@ -2031,12 +2355,12 @@ $.mapToString = function(m) {
   return result.toString$0();
 };
 
-$.startsWith = function(receiver, other) {
-  if (!(typeof receiver === 'string')) return receiver.startsWith$1(other);
-  $.checkString(other);
-  var length$ = $.get$length(other);
-  if ($.gtB(length$, receiver.length)) return false;
-  return other == receiver.substring(0, length$);
+$._XMLHttpRequestEventsImpl$1 = function(_ptr) {
+  return new $._XMLHttpRequestEventsImpl(_ptr);
+};
+
+$._JavaScriptAudioNodeEventsImpl$1 = function(_ptr) {
+  return new $._JavaScriptAudioNodeEventsImpl(_ptr);
 };
 
 $._emitObject = function(o, result, visiting) {
@@ -2061,9 +2385,21 @@ $._emitMap = function(m, result, visiting) {
   $.add$1(t1.visiting_2, m);
   $.add$1(t1.result_1, '{');
   t1.first_3 = true;
-  $.forEach(m, new $.Closure2(t1));
+  $.forEach(m, new $.Closure3(t1));
   $.add$1(t1.result_1, '}');
   $.removeLast(t1.visiting_2);
+};
+
+$.startsWith = function(receiver, other) {
+  if (!(typeof receiver === 'string')) return receiver.startsWith$1(other);
+  $.checkString(other);
+  var length$ = $.get$length(other);
+  if ($.gtB(length$, receiver.length)) return false;
+  return other == receiver.substring(0, length$);
+};
+
+$._IDBDatabaseEventsImpl$1 = function(_ptr) {
+  return new $._IDBDatabaseEventsImpl(_ptr);
 };
 
 $.toStringForNativeObject = function(obj) {
@@ -2094,6 +2430,10 @@ $.dynamicBind = function(obj, name$, methods, arguments$) {
   return method.apply(obj, arguments$);
 };
 
+$._MessagePortEventsImpl$1 = function(_ptr) {
+  return new $._MessagePortEventsImpl(_ptr);
+};
+
 $.Dartrix$0 = function() {
   var t1 = new $.Dartrix(null, null, null, null, null, null, null, null, null, null);
   t1.Dartrix$0();
@@ -2118,19 +2458,12 @@ $.index = function(a, index) {
   return $.index$slow(a, index);
 };
 
-$.indexOf = function(a, element, startIndex, endIndex) {
-  if (typeof a !== 'string' && (typeof a !== 'object' || a === null || (a.constructor !== Array && !a.is$JavaScriptIndexingBehavior()))) return $.indexOf$bailout(1, a, element, startIndex, endIndex);
-  if (typeof endIndex !== 'number') return $.indexOf$bailout(1, a, element, startIndex, endIndex);
-  if ($.geB(startIndex, a.length)) return -1;
-  if ($.ltB(startIndex, 0)) startIndex = 0;
-  if (typeof startIndex !== 'number') return $.indexOf$bailout(2, a, element, startIndex, endIndex);
-  for (var i = startIndex; i < endIndex; ++i) {
-    if (i !== (i | 0)) throw $.iae(i);
-    var t1 = a.length;
-    if (i < 0 || i >= t1) throw $.ioore(i);
-    if ($.eqB(a[i], element)) return i;
-  }
-  return -1;
+$._TextTrackCueEventsImpl$1 = function(_ptr) {
+  return new $._TextTrackCueEventsImpl(_ptr);
+};
+
+$._ElementEventsImpl$1 = function(_ptr) {
+  return new $._ElementEventsImpl(_ptr);
 };
 
 $.MatchImplementation$5 = function(pattern, str, _start, _end, _groups) {
@@ -2143,6 +2476,10 @@ $.List = function(length$) {
 
 $.UnsupportedOperationException$1 = function(_message) {
   return new $.UnsupportedOperationException(_message);
+};
+
+$._XMLHttpRequestUploadEventsImpl$1 = function(_ptr) {
+  return new $._XMLHttpRequestUploadEventsImpl(_ptr);
 };
 
 $.captureStackTrace = function(ex) {
@@ -2165,6 +2502,10 @@ $.indexOf$2 = function(receiver, element, start) {
     return receiver.indexOf(element, start);
   }
   return receiver.indexOf$2(element, start);
+};
+
+$._DedicatedWorkerContextEventsImpl$1 = function(_ptr) {
+  return new $._DedicatedWorkerContextEventsImpl(_ptr);
 };
 
 $.StackOverflowException$0 = function() {
@@ -2197,6 +2538,22 @@ $.substring$1 = function(receiver, startIndex) {
   return $.substring$2(receiver, startIndex, null);
 };
 
+$._FileReaderEventsImpl$1 = function(_ptr) {
+  return new $._FileReaderEventsImpl(_ptr);
+};
+
+$._SharedWorkerContextEventsImpl$1 = function(_ptr) {
+  return new $._SharedWorkerContextEventsImpl(_ptr);
+};
+
+$._IDBVersionChangeRequestEventsImpl$1 = function(_ptr) {
+  return new $._IDBVersionChangeRequestEventsImpl(_ptr);
+};
+
+$.NoMoreElementsException$0 = function() {
+  return new $.NoMoreElementsException();
+};
+
 $.gtB = function(a, b) {
   if (typeof a === 'number' && typeof b === 'number') var t1 = (a > b);
   else {
@@ -2204,10 +2561,6 @@ $.gtB = function(a, b) {
     t1 = t1 === true;
   }
   return t1;
-};
-
-$.NoMoreElementsException$0 = function() {
-  return new $.NoMoreElementsException();
 };
 
 $.setRuntimeTypeInfo = function(target, typeInfo) {
@@ -2225,6 +2578,25 @@ $.eqNullB = function(a) {
   return false;
 };
 
+$.indexOf = function(a, element, startIndex, endIndex) {
+  if (typeof a !== 'string' && (typeof a !== 'object' || a === null || (a.constructor !== Array && !a.is$JavaScriptIndexingBehavior()))) return $.indexOf$bailout(1, a, element, startIndex, endIndex);
+  if (typeof endIndex !== 'number') return $.indexOf$bailout(1, a, element, startIndex, endIndex);
+  if ($.geB(startIndex, a.length)) return -1;
+  if ($.ltB(startIndex, 0)) startIndex = 0;
+  if (typeof startIndex !== 'number') return $.indexOf$bailout(2, a, element, startIndex, endIndex);
+  for (var i = startIndex; i < endIndex; ++i) {
+    if (i !== (i | 0)) throw $.iae(i);
+    var t1 = a.length;
+    if (i < 0 || i >= t1) throw $.ioore(i);
+    if ($.eqB(a[i], element)) return i;
+  }
+  return -1;
+};
+
+$._FrameSetElementEventsImpl$1 = function(_ptr) {
+  return new $._FrameSetElementEventsImpl(_ptr);
+};
+
 $.document = function() {
   return document;;
 };
@@ -2232,6 +2604,10 @@ $.document = function() {
 $.add$slow = function(a, b) {
   if ($.checkNumbers(a, b) === true) return a + b;
   return a.operator$add$1(b);
+};
+
+$._FileWriterEventsImpl$1 = function(_ptr) {
+  return new $._FileWriterEventsImpl(_ptr);
 };
 
 $.newList = function(length$) {
@@ -2246,8 +2622,8 @@ $.main = function() {
   $.Dartrix$0().run$0();
 };
 
-$.lt = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a < b) : $.lt$slow(a, b);
+$._AbstractWorkerEventsImpl$1 = function(_ptr) {
+  return new $._AbstractWorkerEventsImpl(_ptr);
 };
 
 $.unwrapException = function(ex) {
@@ -2280,8 +2656,8 @@ $.unwrapException = function(ex) {
   return ex;
 };
 
-$.NoSuchMethodException$4 = function(_receiver, _functionName, _arguments, existingArgumentNames) {
-  return new $.NoSuchMethodException(existingArgumentNames, _arguments, _functionName, _receiver);
+$.lt = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a < b) : $.lt$slow(a, b);
 };
 
 $.ceil = function(receiver) {
@@ -2293,20 +2669,32 @@ $._computeLoadLimit = function(capacity) {
   return $.tdiv($.mul(capacity, 3), 4);
 };
 
-$.HashSetIterator$1 = function(set_) {
-  var t1 = new $.HashSetIterator(-1, set_.get$_backingMap().get$_keys());
-  t1.HashSetIterator$1(set_);
-  return t1;
-};
-
 $.getTypeNameOf = function(obj) {
   var t1 = $._getTypeNameOf;
   if (t1 == null) $._getTypeNameOf = $.getFunctionForTypeNameOf();
   return $._getTypeNameOf.$call$1(obj);
 };
 
+$.HashSetIterator$1 = function(set_) {
+  var t1 = new $.HashSetIterator(-1, set_.get$_backingMap().get$_keys());
+  t1.HashSetIterator$1(set_);
+  return t1;
+};
+
 $.IllegalArgumentException$1 = function(arg) {
   return new $.IllegalArgumentException(arg);
+};
+
+$.NoSuchMethodException$4 = function(_receiver, _functionName, _arguments, existingArgumentNames) {
+  return new $.NoSuchMethodException(existingArgumentNames, _arguments, _functionName, _receiver);
+};
+
+$._MediaElementEventsImpl$1 = function(_ptr) {
+  return new $._MediaElementEventsImpl(_ptr);
+};
+
+$._IDBTransactionEventsImpl$1 = function(_ptr) {
+  return new $._IDBTransactionEventsImpl(_ptr);
 };
 
 $.sub = function(a, b) {
@@ -2315,6 +2703,10 @@ $.sub = function(a, b) {
 
 $._AllMatchesIterator$2 = function(re, _str) {
   return new $._AllMatchesIterator(false, null, _str, $.JSSyntaxRegExp$_globalVersionOf$1(re));
+};
+
+$._BodyElementEventsImpl$1 = function(_ptr) {
+  return new $._BodyElementEventsImpl(_ptr);
 };
 
 $.allMatchesInStringUnchecked$bailout = function(state, needle, haystack, length$, patternLength, result) {
@@ -2539,6 +2931,19 @@ $.defineProperty(Object.prototype, 'is$Map', function() { return false; });
 $.defineProperty(Object.prototype, 'is$JavaScriptIndexingBehavior', function() { return false; });
 $.defineProperty(Object.prototype, 'is$Collection', function() { return false; });
 $.defineProperty(Object.prototype, 'toString$0', function() { return $.toStringForNativeObject(this); });
+$.$defineNativeClass('AbstractWorker', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  if (Object.getPrototypeOf(this).hasOwnProperty('get$on')) {
+    return $._AbstractWorkerEventsImpl$1(this);
+  } else {
+    return Object.prototype.get$on.call(this);
+  }
+ }
+});
+
 $.$defineNativeClass('HTMLAnchorElement', [], {
  toString$0: function() {
   return this.toString();
@@ -2548,14 +2953,35 @@ $.$defineNativeClass('HTMLAnchorElement', [], {
 $.$defineNativeClass('WebKitAnimationList', ["length?"], {
 });
 
-$.$defineNativeClass('HTMLAppletElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLAppletElement', ["width=", "height="], {
 });
 
 $.$defineNativeClass('AudioBuffer', ["length?"], {
 });
 
+$.$defineNativeClass('AudioContext', [], {
+ get$on: function() {
+  return $._AudioContextEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('HTMLBRElement', [], {
  clear$0: function() { return this.clear.$call$0(); }
+});
+
+$.$defineNativeClass('BatteryManager', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._BatteryManagerEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('HTMLBodyElement', [], {
+ get$on: function() {
+  return $._BodyElementEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('WebKitCSSMatrix', [], {
@@ -2568,11 +2994,20 @@ $.$defineNativeClass('CSSRuleList', ["length?"], {
 });
 
 $.$defineNativeClass('CSSStyleDeclaration', ["length?"], {
+ set$width: function(value) {
+  this.setProperty$3('width', value, '');
+ },
  get$width: function() {
   return this.getPropertyValue$1('width');
  },
  set$textAlign: function(value) {
   this.setProperty$3('text-align', value, '');
+ },
+ get$resize: function() {
+  return this.getPropertyValue$1('resize');
+ },
+ set$height: function(value) {
+  this.setProperty$3('height', value, '');
  },
  get$height: function() {
   return this.getPropertyValue$1('height');
@@ -2595,7 +3030,7 @@ $.$defineNativeClass('CSSStyleDeclaration', ["length?"], {
 $.$defineNativeClass('CSSValueList', ["length?"], {
 });
 
-$.$defineNativeClass('HTMLCanvasElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLCanvasElement', ["width=", "height="], {
  get$context2d: function() {
   return this.getContext$1('2d');
  },
@@ -2626,6 +3061,15 @@ $.$defineNativeClass('ClientRectList', ["length?"], {
 });
 
 _ConsoleImpl = (typeof console == 'undefined' ? {} : console);
+$.$defineNativeClass('DOMApplicationCache', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._DOMApplicationCacheEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('DOMException', [], {
  toString$0: function() {
   return this.toString();
@@ -2705,6 +3149,21 @@ $.$defineNativeClass('DataTransferItemList', ["length?"], {
 }
 });
 
+$.$defineNativeClass('DedicatedWorkerContext', [], {
+ get$on: function() {
+  return $._DedicatedWorkerContextEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('DeprecatedPeerConnection', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._DeprecatedPeerConnectionEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('HTMLDocument', [], {
  query$1: function(selectors) {
   if ($.CTC1.hasMatch$1(selectors) === true) return this.$dom_getElementById$1($.substring$1(selectors, 1));
@@ -2715,12 +3174,18 @@ $.$defineNativeClass('HTMLDocument', [], {
  },
  $dom_getElementById$1: function(elementId) {
   return this.getElementById(elementId);
+ },
+ get$on: function() {
+  return $._DocumentEventsImpl$1(this);
  }
 });
 
 $.$defineNativeClass('DocumentFragment', [], {
  $dom_querySelector$1: function(selectors) {
   return this.querySelector(selectors);
+ },
+ get$on: function() {
+  return $._ElementEventsImpl$1(this);
  },
  query$1: function(selectors) {
   return this.$dom_querySelector$1(selectors);
@@ -2731,12 +3196,19 @@ $.$defineNativeClass('Element', [], {
  $dom_querySelector$1: function(selectors) {
   return this.querySelector(selectors);
  },
+ get$on: function() {
+  if (Object.getPrototypeOf(this).hasOwnProperty('get$on')) {
+    return $._ElementEventsImpl$1(this);
+  } else {
+    return Object.prototype.get$on.call(this);
+  }
+ },
  query$1: function(selectors) {
   return this.$dom_querySelector$1(selectors);
  }
 });
 
-$.$defineNativeClass('HTMLEmbedElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLEmbedElement', ["width=", "height="], {
 });
 
 $.$defineNativeClass('EntryArray', ["length?"], {
@@ -2748,6 +3220,32 @@ $.$defineNativeClass('EntryArraySync', ["length?"], {
 $.$defineNativeClass('EventException', [], {
  toString$0: function() {
   return this.toString();
+ }
+});
+
+$.$defineNativeClass('EventSource', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._EventSourceEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('EventTarget', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  if (Object.getPrototypeOf(this).hasOwnProperty('$dom_addEventListener$3')) {
+    return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+  } else {
+    return Object.prototype.$dom_addEventListener$3.call(this, type, listener, useCapture);
+  }
+ },
+ get$on: function() {
+  if (Object.getPrototypeOf(this).hasOwnProperty('get$on')) {
+    return $._EventsImpl$1(this);
+  } else {
+    return Object.prototype.get$on.call(this);
+  }
  }
 });
 
@@ -2797,7 +3295,22 @@ $.$defineNativeClass('FileList', ["length?"], {
  is$Collection: function() { return true; }
 });
 
+$.$defineNativeClass('FileReader', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._FileReaderEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('FileWriter', ["length?"], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._FileWriterEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('FileWriterSync', ["length?"], {
@@ -2873,7 +3386,13 @@ $.$defineNativeClass('HTMLFormElement', ["length?"], {
 $.$defineNativeClass('HTMLFrameElement', ["width?", "height?"], {
 });
 
-$.$defineNativeClass('HTMLHRElement', ["width?"], {
+$.$defineNativeClass('HTMLFrameSetElement', [], {
+ get$on: function() {
+  return $._FrameSetElementEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('HTMLHRElement', ["width="], {
 });
 
 $.$defineNativeClass('HTMLAllCollection', ["length?"], {
@@ -2924,6 +3443,15 @@ $.$defineNativeClass('HTMLOptionsCollection', [], {
 $.$defineNativeClass('History', ["length?"], {
 });
 
+$.$defineNativeClass('IDBDatabase', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._IDBDatabaseEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('IDBDatabaseException', [], {
  toString$0: function() {
   return this.toString();
@@ -2942,16 +3470,54 @@ $.$defineNativeClass('IDBObjectStore', [], {
 }
 });
 
-$.$defineNativeClass('HTMLIFrameElement', ["width?", "height?"], {
+$.$defineNativeClass('IDBRequest', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  if (Object.getPrototypeOf(this).hasOwnProperty('$dom_addEventListener$3')) {
+    return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+  } else {
+    return Object.prototype.$dom_addEventListener$3.call(this, type, listener, useCapture);
+  }
+ },
+ get$on: function() {
+  if (Object.getPrototypeOf(this).hasOwnProperty('get$on')) {
+    return $._IDBRequestEventsImpl$1(this);
+  } else {
+    return Object.prototype.get$on.call(this);
+  }
+ }
+});
+
+$.$defineNativeClass('IDBTransaction', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._IDBTransactionEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('IDBVersionChangeRequest', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._IDBVersionChangeRequestEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('HTMLIFrameElement', ["width=", "height="], {
 });
 
 $.$defineNativeClass('ImageData', ["width?", "height?"], {
 });
 
-$.$defineNativeClass('HTMLImageElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLImageElement', ["width=", "height="], {
 });
 
-$.$defineNativeClass('HTMLInputElement', ["width?", "pattern?", "height?"], {
+$.$defineNativeClass('HTMLInputElement', ["width=", "pattern?", "height="], {
+ get$on: function() {
+  return $._InputElementEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('Int16Array', ["length?"], {
@@ -3050,13 +3616,40 @@ $.$defineNativeClass('Int8Array', ["length?"], {
  is$Collection: function() { return true; }
 });
 
+$.$defineNativeClass('JavaScriptAudioNode', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._JavaScriptAudioNodeEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('LocalMediaStream', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ }
+});
+
 $.$defineNativeClass('Location', [], {
  toString$0: function() {
   return this.toString();
  }
 });
 
-$.$defineNativeClass('HTMLMarqueeElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLMarqueeElement', ["width=", "height="], {
+});
+
+$.$defineNativeClass('MediaController', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ }
+});
+
+$.$defineNativeClass('HTMLMediaElement', [], {
+ get$on: function() {
+  return $._MediaElementEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('MediaList', ["length?"], {
@@ -3090,10 +3683,32 @@ $.$defineNativeClass('MediaList', ["length?"], {
  is$Collection: function() { return true; }
 });
 
+$.$defineNativeClass('MediaStream', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  if (Object.getPrototypeOf(this).hasOwnProperty('$dom_addEventListener$3')) {
+    return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+  } else {
+    return Object.prototype.$dom_addEventListener$3.call(this, type, listener, useCapture);
+  }
+ },
+ get$on: function() {
+  return $._MediaStreamEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('MediaStreamList', ["length?"], {
 });
 
 $.$defineNativeClass('MediaStreamTrackList', ["length?"], {
+});
+
+$.$defineNativeClass('MessagePort', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._MessagePortEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('NamedNodeMap', ["length?"], {
@@ -3140,6 +3755,9 @@ $.$defineNativeClass('Node', [], {
  $dom_appendChild$1: function(newChild) {
   return this.appendChild(newChild);
  },
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
  set$text: function(value) {
   this.textContent = value;;
  }
@@ -3185,12 +3803,27 @@ $.$defineNativeClass('NodeList', ["length?"], {
 });
 
 $.$defineNativeClass('Notification', ["tag?"], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._NotificationEventsImpl$1(this);
+ }
 });
 
-$.$defineNativeClass('HTMLObjectElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLObjectElement', ["width=", "height="], {
 });
 
-$.$defineNativeClass('HTMLPreElement', ["width?"], {
+$.$defineNativeClass('PeerConnection00', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._PeerConnection00EventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('HTMLPreElement', ["width="], {
 });
 
 $.$defineNativeClass('RadioNodeList', [], {
@@ -3211,6 +3844,12 @@ $.$defineNativeClass('RangeException', [], {
 });
 
 $.$defineNativeClass('SQLResultSetRowList', ["length?"], {
+});
+
+$.$defineNativeClass('SVGElementInstance', [], {
+ get$on: function() {
+  return $._SVGElementInstanceEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('SVGElementInstanceList', ["length?"], {
@@ -3312,7 +3951,7 @@ $.$defineNativeClass('SVGPointList', [], {
  }
 });
 
-$.$defineNativeClass('SVGRect', ["width?", "height?"], {
+$.$defineNativeClass('SVGRect', ["width=", "height="], {
 });
 
 $.$defineNativeClass('SVGRectElement', ["width?", "height?"], {
@@ -3340,6 +3979,9 @@ $.$defineNativeClass('Screen', ["width?", "height?"], {
 });
 
 $.$defineNativeClass('HTMLSelectElement', ["length="], {
+ add$2: function(element, before) {
+  return this.add(element,before);
+ }
 });
 
 $.$defineNativeClass('ShadowRoot', [], {
@@ -3351,10 +3993,25 @@ $.$defineNativeClass('ShadowRoot', [], {
  }
 });
 
+$.$defineNativeClass('SharedWorkerContext', [], {
+ get$on: function() {
+  return $._SharedWorkerContextEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('SpeechGrammarList', ["length?"], {
 });
 
 $.$defineNativeClass('SpeechInputResultList', ["length?"], {
+});
+
+$.$defineNativeClass('SpeechRecognition', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._SpeechRecognitionEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('SpeechRecognitionResult', ["length?"], {
@@ -3438,25 +4095,46 @@ $.$defineNativeClass('StyleSheetList', ["length?"], {
  is$Collection: function() { return true; }
 });
 
-$.$defineNativeClass('HTMLTableCellElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLTableCellElement', ["width=", "height="], {
 });
 
-$.$defineNativeClass('HTMLTableColElement', ["width?"], {
+$.$defineNativeClass('HTMLTableColElement', ["width="], {
 });
 
-$.$defineNativeClass('HTMLTableElement', ["width?"], {
+$.$defineNativeClass('HTMLTableElement', ["width="], {
 });
 
 $.$defineNativeClass('TextMetrics', ["width?"], {
 });
 
+$.$defineNativeClass('TextTrack', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._TextTrackEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('TextTrackCue', ["text!"], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._TextTrackCueEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('TextTrackCueList', ["length?"], {
 });
 
 $.$defineNativeClass('TextTrackList', ["length?"], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._TextTrackListEventsImpl$1(this);
+ }
 });
 
 $.$defineNativeClass('TimeRanges', ["length?"], {
@@ -3594,10 +4272,25 @@ $.$defineNativeClass('Uint8ClampedArray', [], {
  is$Collection: function() { return true; }
 });
 
-$.$defineNativeClass('HTMLVideoElement', ["width?", "height?"], {
+$.$defineNativeClass('HTMLVideoElement', ["width=", "height="], {
 });
 
-$.$defineNativeClass('DOMWindow', ["length?"], {
+$.$defineNativeClass('WebSocket', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._WebSocketEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('DOMWindow', ["screen?", "length?"], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._WindowEventsImpl$1(this);
+ },
  _ensureRequestAnimationFrame$0: function() {
      if (this.requestAnimationFrame && this.cancelAnimationFrame) return;
    var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -3623,9 +4316,37 @@ $.$defineNativeClass('DOMWindow', ["length?"], {
  }
 });
 
+$.$defineNativeClass('Worker', [], {
+ get$on: function() {
+  return $._WorkerEventsImpl$1(this);
+ }
+});
+
+$.$defineNativeClass('WorkerContext', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  if (Object.getPrototypeOf(this).hasOwnProperty('get$on')) {
+    return $._WorkerContextEventsImpl$1(this);
+  } else {
+    return Object.prototype.get$on.call(this);
+  }
+ }
+});
+
 $.$defineNativeClass('WorkerLocation', [], {
  toString$0: function() {
   return this.toString();
+ }
+});
+
+$.$defineNativeClass('XMLHttpRequest', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._XMLHttpRequestEventsImpl$1(this);
  }
 });
 
@@ -3635,28 +4356,55 @@ $.$defineNativeClass('XMLHttpRequestException', [], {
  }
 });
 
+$.$defineNativeClass('XMLHttpRequestUpload', [], {
+ $dom_addEventListener$3: function(type, listener, useCapture) {
+  return this.addEventListener(type,$.convertDartClosureToJS(listener, 1),useCapture);
+ },
+ get$on: function() {
+  return $._XMLHttpRequestUploadEventsImpl$1(this);
+ }
+});
+
 $.$defineNativeClass('XPathException', [], {
  toString$0: function() {
   return this.toString();
  }
 });
 
-// 128 dynamic classes.
-// 251 classes
-// 18 !leaf
+$.$defineNativeClass('IDBOpenDBRequest', [], {
+ get$on: function() {
+  return $._IDBOpenDBRequestEventsImpl$1(this);
+ }
+});
+
+// 160 dynamic classes.
+// 281 classes
+// 23 !leaf
 (function(){
-  var v0/*class(_ElementImpl)*/ = 'Element|HTMLUnknownElement|HTMLUListElement|HTMLTrackElement|HTMLTitleElement|HTMLTextAreaElement|HTMLTableSectionElement|HTMLTableRowElement|HTMLTableElement|HTMLTableColElement|HTMLTableCellElement|HTMLTableCaptionElement|HTMLStyleElement|HTMLSpanElement|HTMLSourceElement|HTMLShadowElement|HTMLSelectElement|HTMLScriptElement|SVGElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|HTMLQuoteElement|HTMLProgressElement|HTMLPreElement|HTMLParamElement|HTMLParagraphElement|HTMLOutputElement|HTMLOptionElement|HTMLOptGroupElement|HTMLObjectElement|HTMLOListElement|HTMLModElement|HTMLMeterElement|HTMLMetaElement|HTMLMenuElement|HTMLMediaElement|HTMLVideoElement|HTMLAudioElement|HTMLVideoElement|HTMLAudioElement|HTMLMarqueeElement|HTMLMapElement|HTMLLinkElement|HTMLLegendElement|HTMLLabelElement|HTMLLIElement|HTMLKeygenElement|HTMLInputElement|HTMLImageElement|HTMLIFrameElement|HTMLHtmlElement|HTMLHeadingElement|HTMLHeadElement|HTMLHRElement|HTMLFrameSetElement|HTMLFrameElement|HTMLFormElement|HTMLFontElement|HTMLFieldSetElement|HTMLEmbedElement|HTMLDivElement|HTMLDirectoryElement|HTMLDetailsElement|HTMLDListElement|HTMLContentElement|HTMLCanvasElement|HTMLButtonElement|HTMLBodyElement|HTMLBaseFontElement|HTMLBaseElement|HTMLBRElement|HTMLAreaElement|HTMLAppletElement|HTMLAnchorElement|HTMLElement|HTMLUnknownElement|HTMLUListElement|HTMLTrackElement|HTMLTitleElement|HTMLTextAreaElement|HTMLTableSectionElement|HTMLTableRowElement|HTMLTableElement|HTMLTableColElement|HTMLTableCellElement|HTMLTableCaptionElement|HTMLStyleElement|HTMLSpanElement|HTMLSourceElement|HTMLShadowElement|HTMLSelectElement|HTMLScriptElement|SVGElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|HTMLQuoteElement|HTMLProgressElement|HTMLPreElement|HTMLParamElement|HTMLParagraphElement|HTMLOutputElement|HTMLOptionElement|HTMLOptGroupElement|HTMLObjectElement|HTMLOListElement|HTMLModElement|HTMLMeterElement|HTMLMetaElement|HTMLMenuElement|HTMLMediaElement|HTMLVideoElement|HTMLAudioElement|HTMLVideoElement|HTMLAudioElement|HTMLMarqueeElement|HTMLMapElement|HTMLLinkElement|HTMLLegendElement|HTMLLabelElement|HTMLLIElement|HTMLKeygenElement|HTMLInputElement|HTMLImageElement|HTMLIFrameElement|HTMLHtmlElement|HTMLHeadingElement|HTMLHeadElement|HTMLHRElement|HTMLFrameSetElement|HTMLFrameElement|HTMLFormElement|HTMLFontElement|HTMLFieldSetElement|HTMLEmbedElement|HTMLDivElement|HTMLDirectoryElement|HTMLDetailsElement|HTMLDListElement|HTMLContentElement|HTMLCanvasElement|HTMLButtonElement|HTMLBodyElement|HTMLBaseFontElement|HTMLBaseElement|HTMLBRElement|HTMLAreaElement|HTMLAppletElement|HTMLAnchorElement|HTMLElement';
-  var v1/*class(_DocumentFragmentImpl)*/ = 'DocumentFragment|ShadowRoot|ShadowRoot';
-  var v2/*class(_DocumentImpl)*/ = 'HTMLDocument|SVGDocument|SVGDocument';
-  var v3/*class(_CharacterDataImpl)*/ = 'CharacterData|Text|CDATASection|CDATASection|Comment|Text|CDATASection|CDATASection|Comment';
+  var v0/*class(_MediaElementImpl)*/ = 'HTMLMediaElement|HTMLVideoElement|HTMLAudioElement|HTMLVideoElement|HTMLAudioElement';
+  var v1/*class(_ElementImpl)*/ = [v0/*class(_MediaElementImpl)*/,v0/*class(_MediaElementImpl)*/,'Element|HTMLUnknownElement|HTMLUListElement|HTMLTrackElement|HTMLTitleElement|HTMLTextAreaElement|HTMLTableSectionElement|HTMLTableRowElement|HTMLTableElement|HTMLTableColElement|HTMLTableCellElement|HTMLTableCaptionElement|HTMLStyleElement|HTMLSpanElement|HTMLSourceElement|HTMLShadowElement|HTMLSelectElement|HTMLScriptElement|SVGElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|HTMLQuoteElement|HTMLProgressElement|HTMLPreElement|HTMLParamElement|HTMLParagraphElement|HTMLOutputElement|HTMLOptionElement|HTMLOptGroupElement|HTMLObjectElement|HTMLOListElement|HTMLModElement|HTMLMeterElement|HTMLMetaElement|HTMLMenuElement|HTMLMarqueeElement|HTMLMapElement|HTMLLinkElement|HTMLLegendElement|HTMLLabelElement|HTMLLIElement|HTMLKeygenElement|HTMLInputElement|HTMLImageElement|HTMLIFrameElement|HTMLHtmlElement|HTMLHeadingElement|HTMLHeadElement|HTMLHRElement|HTMLFrameSetElement|HTMLFrameElement|HTMLFormElement|HTMLFontElement|HTMLFieldSetElement|HTMLEmbedElement|HTMLDivElement|HTMLDirectoryElement|HTMLDetailsElement|HTMLDListElement|HTMLContentElement|HTMLCanvasElement|HTMLButtonElement|HTMLBodyElement|HTMLBaseFontElement|HTMLBaseElement|HTMLBRElement|HTMLAreaElement|HTMLAppletElement|HTMLAnchorElement|HTMLElement|HTMLUnknownElement|HTMLUListElement|HTMLTrackElement|HTMLTitleElement|HTMLTextAreaElement|HTMLTableSectionElement|HTMLTableRowElement|HTMLTableElement|HTMLTableColElement|HTMLTableCellElement|HTMLTableCaptionElement|HTMLStyleElement|HTMLSpanElement|HTMLSourceElement|HTMLShadowElement|HTMLSelectElement|HTMLScriptElement|SVGElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|SVGViewElement|SVGVKernElement|SVGUseElement|SVGTitleElement|SVGTextContentElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGTextPositioningElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextElement|SVGTSpanElement|SVGTRefElement|SVGAltGlyphElement|SVGTextPathElement|SVGSymbolElement|SVGSwitchElement|SVGStyleElement|SVGStopElement|SVGScriptElement|SVGSVGElement|SVGRectElement|SVGPolylineElement|SVGPolygonElement|SVGPatternElement|SVGPathElement|SVGMissingGlyphElement|SVGMetadataElement|SVGMaskElement|SVGMarkerElement|SVGMPathElement|SVGLineElement|SVGImageElement|SVGHKernElement|SVGGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGRadialGradientElement|SVGLinearGradientElement|SVGGlyphRefElement|SVGGlyphElement|SVGGElement|SVGForeignObjectElement|SVGFontFaceUriElement|SVGFontFaceSrcElement|SVGFontFaceNameElement|SVGFontFaceFormatElement|SVGFontFaceElement|SVGFontElement|SVGFilterElement|SVGFETurbulenceElement|SVGFETileElement|SVGFESpotLightElement|SVGFESpecularLightingElement|SVGFEPointLightElement|SVGFEOffsetElement|SVGFEMorphologyElement|SVGFEMergeNodeElement|SVGFEMergeElement|SVGFEImageElement|SVGFEGaussianBlurElement|SVGFEFloodElement|SVGFEDropShadowElement|SVGFEDistantLightElement|SVGFEDisplacementMapElement|SVGFEDiffuseLightingElement|SVGFEConvolveMatrixElement|SVGFECompositeElement|SVGFEComponentTransferElement|SVGFEColorMatrixElement|SVGFEBlendElement|SVGEllipseElement|SVGDescElement|SVGDefsElement|SVGCursorElement|SVGComponentTransferFunctionElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGFEFuncRElement|SVGFEFuncGElement|SVGFEFuncBElement|SVGFEFuncAElement|SVGClipPathElement|SVGCircleElement|SVGAnimationElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGSetElement|SVGAnimateTransformElement|SVGAnimateMotionElement|SVGAnimateElement|SVGAnimateColorElement|SVGAltGlyphItemElement|SVGAltGlyphDefElement|SVGAElement|HTMLQuoteElement|HTMLProgressElement|HTMLPreElement|HTMLParamElement|HTMLParagraphElement|HTMLOutputElement|HTMLOptionElement|HTMLOptGroupElement|HTMLObjectElement|HTMLOListElement|HTMLModElement|HTMLMeterElement|HTMLMetaElement|HTMLMenuElement|HTMLMarqueeElement|HTMLMapElement|HTMLLinkElement|HTMLLegendElement|HTMLLabelElement|HTMLLIElement|HTMLKeygenElement|HTMLInputElement|HTMLImageElement|HTMLIFrameElement|HTMLHtmlElement|HTMLHeadingElement|HTMLHeadElement|HTMLHRElement|HTMLFrameSetElement|HTMLFrameElement|HTMLFormElement|HTMLFontElement|HTMLFieldSetElement|HTMLEmbedElement|HTMLDivElement|HTMLDirectoryElement|HTMLDetailsElement|HTMLDListElement|HTMLContentElement|HTMLCanvasElement|HTMLButtonElement|HTMLBodyElement|HTMLBaseFontElement|HTMLBaseElement|HTMLBRElement|HTMLAreaElement|HTMLAppletElement|HTMLAnchorElement|HTMLElement'].join('|');
+  var v2/*class(_DocumentFragmentImpl)*/ = 'DocumentFragment|ShadowRoot|ShadowRoot';
+  var v3/*class(_DocumentImpl)*/ = 'HTMLDocument|SVGDocument|SVGDocument';
+  var v4/*class(_CharacterDataImpl)*/ = 'CharacterData|Text|CDATASection|CDATASection|Comment|Text|CDATASection|CDATASection|Comment';
+  var v5/*class(_WorkerContextImpl)*/ = 'WorkerContext|SharedWorkerContext|DedicatedWorkerContext|SharedWorkerContext|DedicatedWorkerContext';
+  var v6/*class(_NodeImpl)*/ = [v1/*class(_ElementImpl)*/,v2/*class(_DocumentFragmentImpl)*/,v3/*class(_DocumentImpl)*/,v4/*class(_CharacterDataImpl)*/,v1/*class(_ElementImpl)*/,v2/*class(_DocumentFragmentImpl)*/,v3/*class(_DocumentImpl)*/,v4/*class(_CharacterDataImpl)*/,'Node|ProcessingInstruction|Notation|EntityReference|Entity|DocumentType|Attr|ProcessingInstruction|Notation|EntityReference|Entity|DocumentType|Attr'].join('|');
+  var v7/*class(_MediaStreamImpl)*/ = 'MediaStream|LocalMediaStream|LocalMediaStream';
+  var v8/*class(_IDBRequestImpl)*/ = 'IDBRequest|IDBOpenDBRequest|IDBVersionChangeRequest|IDBOpenDBRequest|IDBVersionChangeRequest';
+  var v9/*class(_AbstractWorkerImpl)*/ = 'AbstractWorker|Worker|SharedWorker|Worker|SharedWorker';
   var table = [
     // [dynamic-dispatch-tag, tags of classes implementing dynamic-dispatch-tag]
+    ['WorkerContext', v5/*class(_WorkerContextImpl)*/],
+    ['HTMLMediaElement', v0/*class(_MediaElementImpl)*/],
+    ['Element', v1/*class(_ElementImpl)*/],
+    ['DocumentFragment', v2/*class(_DocumentFragmentImpl)*/],
+    ['HTMLDocument', v3/*class(_DocumentImpl)*/],
+    ['CharacterData', v4/*class(_CharacterDataImpl)*/],
+    ['Node', v6/*class(_NodeImpl)*/],
+    ['MediaStream', v7/*class(_MediaStreamImpl)*/],
+    ['IDBRequest', v8/*class(_IDBRequestImpl)*/],
+    ['AbstractWorker', v9/*class(_AbstractWorkerImpl)*/],
+    ['EventTarget', [v5/*class(_WorkerContextImpl)*/,v6/*class(_NodeImpl)*/,v7/*class(_MediaStreamImpl)*/,v8/*class(_IDBRequestImpl)*/,v9/*class(_AbstractWorkerImpl)*/,v5/*class(_WorkerContextImpl)*/,v6/*class(_NodeImpl)*/,v7/*class(_MediaStreamImpl)*/,v8/*class(_IDBRequestImpl)*/,v9/*class(_AbstractWorkerImpl)*/,'EventTarget|XMLHttpRequestUpload|XMLHttpRequest|DOMWindow|WebSocket|TextTrackList|TextTrackCue|TextTrack|SpeechRecognition|PeerConnection00|Notification|MessagePort|MediaController|IDBTransaction|IDBDatabase|FileWriter|FileReader|EventSource|DeprecatedPeerConnection|DOMApplicationCache|BatteryManager|AudioContext|XMLHttpRequestUpload|XMLHttpRequest|DOMWindow|WebSocket|TextTrackList|TextTrackCue|TextTrack|SpeechRecognition|PeerConnection00|Notification|MessagePort|MediaController|IDBTransaction|IDBDatabase|FileWriter|FileReader|EventSource|DeprecatedPeerConnection|DOMApplicationCache|BatteryManager|AudioContext'].join('|')],
     ['HTMLCollection', 'HTMLCollection|HTMLOptionsCollection|HTMLOptionsCollection'],
-    ['Element', v0/*class(_ElementImpl)*/],
-    ['DocumentFragment', v1/*class(_DocumentFragmentImpl)*/],
-    ['HTMLDocument', v2/*class(_DocumentImpl)*/],
-    ['CharacterData', v3/*class(_CharacterDataImpl)*/],
-    ['Node', [v0/*class(_ElementImpl)*/,v1/*class(_DocumentFragmentImpl)*/,v2/*class(_DocumentImpl)*/,v3/*class(_CharacterDataImpl)*/,v0/*class(_ElementImpl)*/,v1/*class(_DocumentFragmentImpl)*/,v2/*class(_DocumentImpl)*/,v3/*class(_CharacterDataImpl)*/,'Node|ProcessingInstruction|Notation|EntityReference|Entity|DocumentType|Attr|ProcessingInstruction|Notation|EntityReference|Entity|DocumentType|Attr'].join('|')],
     ['Uint8Array', 'Uint8Array|Uint8ClampedArray|Uint8ClampedArray'],
     ['NodeList', 'NodeList|RadioNodeList|RadioNodeList'],
     ['CSSValueList', 'CSSValueList|WebKitCSSFilterValue|WebKitCSSTransformValue|WebKitCSSFilterValue|WebKitCSSTransformValue'],

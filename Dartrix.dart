@@ -71,30 +71,35 @@ class Dartrix {
   drawStrip(x, y) {
     for (var k = 0; k <= 20; k++) {
       var randChar = _letters[(Math.random()*_letters.length).toInt()];
-      //if (_ctx.fillText) {
-          switch (k) {
-          case 0:
-            _ctx.fillStyle = _colors[0]; break;
-          case 1:
-            _ctx.fillStyle = _colors[1]; break;
-          case 3:
-            _ctx.fillStyle = _colors[2]; break;
-          case 7:
-            _ctx.fillStyle = _colors[3]; break;
-          case 13:
-            _ctx.fillStyle = _colors[4]; break;
-          case 17:
-            _ctx.fillStyle = _colors[5]; break;
-          }
-          _ctx.fillText(randChar, x, y);
-      //}
+      switch (k) {
+      case 0:
+        _ctx.fillStyle = _colors[0]; break;
+      case 1:
+        _ctx.fillStyle = _colors[1]; break;
+      case 3:
+        _ctx.fillStyle = _colors[2]; break;
+      case 7:
+        _ctx.fillStyle = _colors[3]; break;
+      case 13:
+        _ctx.fillStyle = _colors[4]; break;
+      case 17:
+        _ctx.fillStyle = _colors[5]; break;
+      }
+      _ctx.fillText(randChar, x, y);
       y -= _stripFontSize[k];
      }
   }
+
+  onResize() {
+    _canvas.height = window.screen.height;
+    _canvas.width = window.screen.width;
+  }  
   
   run(){
     _canvas = document.query("#canvas");
     _ctx = _canvas.context2d;
+    onResize();
+    window.on.resize.add((event) => onResize(), true);
     window.requestAnimationFrame(draw);
   }
   
