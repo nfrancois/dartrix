@@ -32,11 +32,15 @@ class Dartrix {
     _stripY = new List<num>(_STRIPCOUNT);
     _dY = new List<num>(_STRIPCOUNT);
     for (var i = 0; i < _STRIPCOUNT; i++) {
-      _stripX[i] = (Math.random()*_width);
-      _stripY[i] = -100;
-      _dY[i] = (Math.random()*7)+3;
-      _stripFontSize[i] =  ((Math.random()*24)+12).toInt(); 
+      initStrip(i);
     }
+  }
+  
+  initStrip(num i){
+    _stripX[i] = (Math.random()*_width);
+    _stripY[i] = -100;
+    _dY[i] = (Math.random()*7)+3;
+    _stripFontSize[i] =  ((Math.random()*24)+12).toInt();   
   }
   
   bool draw(int time){
@@ -54,11 +58,7 @@ class Dartrix {
       _ctx.textBaseline = 'top';
       _ctx.textAlign = 'center';
       if (_stripY[i] > _height) {
-        _stripX[i] = Math.random()*_width;
-        _stripY[i] = -100;
-        _dY[i] = (Math.random()*7)+3;
-        _stripFontSize[i] = (Math.random()*24)+12;
-        drawStrip(_stripX[i], _stripY[i]);
+        initStrip(i);
       } else {
         drawStrip(_stripX[i], _stripY[i]);
       }
