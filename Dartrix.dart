@@ -7,7 +7,7 @@ void main() {
 }
 
 final num _STRIPCOUNT = 90;
-final String MESSAGE = "Enter in the Dartrix";
+final String MESSAGE = "Welcome to the Dartrix";
 final num MESSAGE_DELAY = 3000;
 final List<String> _COLORS = const ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
 final List<String> _LETTERS = const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];

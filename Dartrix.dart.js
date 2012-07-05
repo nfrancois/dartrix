@@ -1049,7 +1049,7 @@ $$.Dartrix = {"":
   this._ctx.set$font('bold 75px MatrixCode');
   var t1 = 'rgba(67,199,40, ' + $.S(alpha) + ')';
   this._ctx.set$fillStyle(t1);
-  this._ctx.fillText$3('Enter in the Dartrix', $.div(this._width, 2), $.sub($.div(this._height, 2), 100));
+  this._ctx.fillText$3('Welcome to the Dartrix', $.div(this._width, 2), $.sub($.div(this._height, 2), 100));
  },
  drawStrip$2: function(x, y) {
   for (var k = 0; k <= 20; ++k) {
@@ -1099,14 +1099,11 @@ $$.Dartrix = {"":
   this.clear$0();
   var t1 = this._startTime;
   if (typeof t1 !== 'number') return this.draw$1$bailout(2, time, t1, 0, 0);
-  if (t1 === 0) this._startTime = time;
-  else {
-    t1 = time - t1;
-    t1 < 3000 && this.showMessage$1((3000 - t1) / 3000);
-  }
+  t1 = time - t1;
+  t1 < 3000 && this.showMessage$1((3000 - t1) / 3000);
   for (var i = 0; i < 90; ++i) {
     t1 = this._stripFontSize;
-    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(5, t1, i, 0, 0);
+    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(4, t1, i, 0, 0);
     var t2 = t1.length;
     if (i < 0 || i >= t2) throw $.ioore(i);
     var t3 = $.S(t1[i]) + 'px MatrixCode';
@@ -1114,77 +1111,37 @@ $$.Dartrix = {"":
     this._ctx.set$textBaseline('top');
     this._ctx.set$textAlign('center');
     t1 = this._stripY;
-    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(6, i, t1, 0, 0);
+    if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(5, i, t1, 0, 0);
     t2 = t1.length;
     if (i < 0 || i >= t2) throw $.ioore(i);
     t3 = t1[i];
-    if (typeof t3 !== 'number') return this.draw$1$bailout(7, t3, i, 0, 0);
+    if (typeof t3 !== 'number') return this.draw$1$bailout(6, t3, i, 0, 0);
     var t4 = this._height;
-    if (typeof t4 !== 'number') return this.draw$1$bailout(8, t3, t4, i, 0);
-    t4 = t3 > t4;
-    t3 = this._stripX;
-    if (typeof t3 !== 'object' || t3 === null || ((t3.constructor !== Array || !!t3.immutable$list) && !t3.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(9, t3, t4, i, 0);
-    if (t4) {
-      t1 = $.random();
-      if (typeof t1 !== 'number') return this.draw$1$bailout(10, t3, t1, i, 0);
-      t2 = this._width;
-      if (typeof t2 !== 'number') return this.draw$1$bailout(11, t3, t1, t2, i);
-      t2 *= t1;
-      t1 = t3.length;
-      if (i < 0 || i >= t1) throw $.ioore(i);
-      t3[i] = t2;
-      t2 = this._stripY;
-      if (typeof t2 !== 'object' || t2 === null || ((t2.constructor !== Array || !!t2.immutable$list) && !t2.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(12, t2, i, 0, 0);
+    if (typeof t4 !== 'number') return this.draw$1$bailout(7, t3, i, t4, 0);
+    if (t3 > t4) this.initStrip$1(i);
+    else {
+      t2 = this._stripX;
+      if (typeof t2 !== 'string' && (typeof t2 !== 'object' || t2 === null || (t2.constructor !== Array && !t2.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(8, t2, i, 0, 0);
       t3 = t2.length;
       if (i < 0 || i >= t3) throw $.ioore(i);
-      t2[i] = -100;
-      t2 = this._dY;
-      if (typeof t2 !== 'object' || t2 === null || ((t2.constructor !== Array || !!t2.immutable$list) && !t2.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(13, i, t2, 0, 0);
-      t4 = $.random();
-      if (typeof t4 !== 'number') return this.draw$1$bailout(14, t4, i, t2, 0);
-      var t5 = t4 * 7 + 3;
-      var t6 = t2.length;
-      if (i < 0 || i >= t6) throw $.ioore(i);
-      t2[i] = t5;
-      t5 = this._stripFontSize;
-      if (typeof t5 !== 'object' || t5 === null || ((t5.constructor !== Array || !!t5.immutable$list) && !t5.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(15, i, t5, 0, 0);
-      t2 = $.random();
-      if (typeof t2 !== 'number') return this.draw$1$bailout(16, t2, i, t5, 0);
-      var t7 = t2 * 24 + 12;
-      var t8 = t5.length;
-      if (i < 0 || i >= t8) throw $.ioore(i);
-      t5[i] = t7;
-      t7 = this._stripX;
-      if (typeof t7 !== 'string' && (typeof t7 !== 'object' || t7 === null || (t7.constructor !== Array && !t7.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(17, i, t7, 0, 0);
-      t5 = t7.length;
-      if (i < 0 || i >= t5) throw $.ioore(i);
-      t7 = t7[i];
-      var t9 = this._stripY;
-      if (typeof t9 !== 'string' && (typeof t9 !== 'object' || t9 === null || (t9.constructor !== Array && !t9.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(18, i, t7, t9, 0);
-      var t10 = t9.length;
-      if (i < 0 || i >= t10) throw $.ioore(i);
-      this.drawStrip$2(t7, t9[i]);
-    } else {
-      t2 = t3.length;
-      if (i < 0 || i >= t2) throw $.ioore(i);
-      t3 = t3[i];
-      if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(19, t1, i, t3, 0);
+      t2 = t2[i];
+      if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(9, t1, t2, i, 0);
       t4 = t1.length;
       if (i < 0 || i >= t4) throw $.ioore(i);
-      this.drawStrip$2(t3, t1[i]);
+      this.drawStrip$2(t2, t1[i]);
     }
     t1 = this._stripY;
-    if (typeof t1 !== 'object' || t1 === null || ((t1.constructor !== Array || !!t1.immutable$list) && !t1.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(20, t1, i, 0, 0);
+    if (typeof t1 !== 'object' || t1 === null || ((t1.constructor !== Array || !!t1.immutable$list) && !t1.is$JavaScriptIndexingBehavior())) return this.draw$1$bailout(10, t1, i, 0, 0);
     t2 = this._dY;
-    if (typeof t2 !== 'string' && (typeof t2 !== 'object' || t2 === null || (t2.constructor !== Array && !t2.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(21, t1, t2, i, 0);
+    if (typeof t2 !== 'string' && (typeof t2 !== 'object' || t2 === null || (t2.constructor !== Array && !t2.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(11, t1, t2, i, 0);
     t3 = t2.length;
     if (i < 0 || i >= t3) throw $.ioore(i);
     t2 = t2[i];
-    if (typeof t2 !== 'number') return this.draw$1$bailout(22, t1, i, t2, 0);
+    if (typeof t2 !== 'number') return this.draw$1$bailout(12, t1, i, t2, 0);
     t4 = t1.length;
     if (i < 0 || i >= t4) throw $.ioore(i);
-    t5 = t1[i];
-    if (typeof t5 !== 'number') return this.draw$1$bailout(23, t5, t1, i, t2);
+    var t5 = t1[i];
+    if (typeof t5 !== 'number') return this.draw$1$bailout(13, t1, i, t2, t5);
     t1[i] = t5 + t2;
   }
   $.window().requestAnimationFrame$1(this.get$draw());
@@ -1204,97 +1161,50 @@ $$.Dartrix = {"":
       t1 = env1;
       break;
     case 4:
-      time = env0;
-      t1 = env1;
-      break;
-    case 5:
       t1 = env0;
       i = env1;
       break;
-    case 6:
+    case 5:
       i = env0;
       t1 = env1;
+      break;
+    case 6:
+      t1 = env0;
+      i = env1;
       break;
     case 7:
       t1 = env0;
       i = env1;
+      t2 = env2;
       break;
     case 8:
       t1 = env0;
-      t2 = env1;
-      i = env2;
+      i = env1;
       break;
     case 9:
-      t1 = env0;
-      t2 = env1;
+      t2 = env0;
+      t1 = env1;
       i = env2;
       break;
     case 10:
       t1 = env0;
-      t2 = env1;
-      i = env2;
+      i = env1;
       break;
     case 11:
       t1 = env0;
       t2 = env1;
-      t3 = env2;
-      i = env3;
+      i = env2;
       break;
     case 12:
       t1 = env0;
       i = env1;
+      t2 = env2;
       break;
     case 13:
-      i = env0;
-      t1 = env1;
-      break;
-    case 14:
-      t4 = env0;
-      i = env1;
-      t1 = env2;
-      break;
-    case 15:
-      i = env0;
-      t1 = env1;
-      break;
-    case 16:
-      t5 = env0;
-      i = env1;
-      t1 = env2;
-      break;
-    case 17:
-      i = env0;
-      t1 = env1;
-      break;
-    case 18:
-      i = env0;
-      t1 = env1;
-      t6 = env2;
-      break;
-    case 19:
-      t2 = env0;
-      i = env1;
-      t1 = env2;
-      break;
-    case 20:
-      t1 = env0;
-      i = env1;
-      break;
-    case 21:
-      t1 = env0;
-      t2 = env1;
-      i = env2;
-      break;
-    case 22:
       t1 = env0;
       i = env1;
       t2 = env2;
-      break;
-    case 23:
-      t3 = env0;
-      t1 = env1;
-      i = env2;
-      t2 = env3;
+      t3 = env3;
       break;
   }
   switch (state) {
@@ -1306,21 +1216,17 @@ $$.Dartrix = {"":
     case 2:
       state = 0;
     case 3:
-    case 4:
-      if ((state == 0 && $.eqB(t1, 0))) {
+      if ((state == 0 && t1 == null)) {
         this._startTime = time;
       } else {
         switch (state) {
           case 0:
-            t1 = this._startTime;
           case 3:
-            state = 0;
-          case 4:
-            if (state == 4 || (state == 0 && $.ltB($.sub(time, t1), 3000))) {
+            if (state == 3 || (state == 0 && $.ltB($.sub(time, t1), 3000))) {
               switch (state) {
                 case 0:
                   t1 = this._startTime;
-                case 4:
+                case 3:
                   state = 0;
                   t1 = $.sub(time, t1);
                   if (typeof t1 !== 'number') throw $.iae(t1);
@@ -1330,6 +1236,7 @@ $$.Dartrix = {"":
         }
       }
       var i = 0;
+    case 4:
     case 5:
     case 6:
     case 7:
@@ -1339,108 +1246,54 @@ $$.Dartrix = {"":
     case 11:
     case 12:
     case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 22:
-    case 23:
       L0: while (true) {
         switch (state) {
           case 0:
             if (!(i < 90)) break L0;
             t1 = this._stripFontSize;
-          case 5:
+          case 4:
             state = 0;
             var t2 = $.S($.index(t1, i)) + 'px MatrixCode';
             this._ctx.set$font(t2);
             this._ctx.set$textBaseline('top');
             this._ctx.set$textAlign('center');
             t1 = this._stripY;
-          case 6:
+          case 5:
             state = 0;
             t1 = $.index(t1, i);
-          case 7:
+          case 6:
             state = 0;
             t2 = this._height;
+          case 7:
+            state = 0;
           case 8:
-            state = 0;
-            t2 = $.gtB(t1, t2);
-            t1 = this._stripX;
           case 9:
-            state = 0;
-          case 10:
-          case 11:
-          case 12:
-          case 13:
-          case 14:
-          case 15:
-          case 16:
-          case 17:
-          case 18:
-          case 19:
-            if (state == 10 || state == 11 || state == 12 || state == 13 || state == 14 || state == 15 || state == 16 || state == 17 || state == 18 || (state == 0 && t2)) {
-              switch (state) {
-                case 0:
-                  t2 = $.random();
-                case 10:
-                  state = 0;
-                  var t3 = this._width;
-                case 11:
-                  state = 0;
-                  $.indexSet(t1, i, $.mul(t2, t3));
-                  t1 = this._stripY;
-                case 12:
-                  state = 0;
-                  $.indexSet(t1, i, -100);
-                  t1 = this._dY;
-                case 13:
-                  state = 0;
-                  var t4 = $.random();
-                case 14:
-                  state = 0;
-                  $.indexSet(t1, i, $.add($.mul(t4, 7), 3));
-                  t1 = this._stripFontSize;
-                case 15:
-                  state = 0;
-                  var t5 = $.random();
-                case 16:
-                  state = 0;
-                  $.indexSet(t1, i, $.add($.mul(t5, 24), 12));
-                  t1 = this._stripX;
-                case 17:
-                  state = 0;
-                  t1 = $.index(t1, i);
-                  var t6 = this._stripY;
-                case 18:
-                  state = 0;
-                  this.drawStrip$2(t1, $.index(t6, i));
-              }
+            if ((state == 0 && $.gtB(t1, t2))) {
+              this.initStrip$1(i);
             } else {
               switch (state) {
                 case 0:
+                  t1 = this._stripX;
+                case 8:
+                  state = 0;
                   t1 = $.index(t1, i);
                   t2 = this._stripY;
-                case 19:
+                case 9:
                   state = 0;
                   this.drawStrip$2(t1, $.index(t2, i));
               }
             }
             t1 = this._stripY;
-          case 20:
+          case 10:
             state = 0;
             t2 = this._dY;
-          case 21:
+          case 11:
             state = 0;
             t2 = $.index(t2, i);
-          case 22:
+          case 12:
             state = 0;
-            t3 = $.index(t1, i);
-          case 23:
+            var t3 = $.index(t1, i);
+          case 13:
             state = 0;
             $.indexSet(t1, i, $.add(t3, t2));
             ++i;
@@ -1451,6 +1304,112 @@ $$.Dartrix = {"":
   }
  },
  get$draw: function() { return new $.Closure16(this, 'draw$1'); },
+ initStrip$1: function(i) {
+  var t1 = this._stripX;
+  if (typeof t1 !== 'object' || t1 === null || ((t1.constructor !== Array || !!t1.immutable$list) && !t1.is$JavaScriptIndexingBehavior())) return this.initStrip$1$bailout(1, i, t1, 0, 0);
+  var t2 = $.random();
+  if (typeof t2 !== 'number') return this.initStrip$1$bailout(2, i, t1, t2, 0);
+  var t3 = this._width;
+  if (typeof t3 !== 'number') return this.initStrip$1$bailout(3, i, t1, t3, t2);
+  t3 *= t2;
+  if (i !== (i | 0)) throw $.iae(i);
+  t2 = t1.length;
+  if (i < 0 || i >= t2) throw $.ioore(i);
+  t1[i] = t3;
+  t3 = this._stripY;
+  if (typeof t3 !== 'object' || t3 === null || ((t3.constructor !== Array || !!t3.immutable$list) && !t3.is$JavaScriptIndexingBehavior())) return this.initStrip$1$bailout(4, i, t3, 0, 0);
+  t1 = t3.length;
+  if (i < 0 || i >= t1) throw $.ioore(i);
+  t3[i] = -100;
+  t3 = this._dY;
+  if (typeof t3 !== 'object' || t3 === null || ((t3.constructor !== Array || !!t3.immutable$list) && !t3.is$JavaScriptIndexingBehavior())) return this.initStrip$1$bailout(5, i, t3, 0, 0);
+  var t4 = $.random();
+  if (typeof t4 !== 'number') return this.initStrip$1$bailout(6, i, t4, t3, 0);
+  var t5 = t4 * 7 + 3;
+  var t6 = t3.length;
+  if (i < 0 || i >= t6) throw $.ioore(i);
+  t3[i] = t5;
+  t5 = this._stripFontSize;
+  if (typeof t5 !== 'object' || t5 === null || ((t5.constructor !== Array || !!t5.immutable$list) && !t5.is$JavaScriptIndexingBehavior())) return this.initStrip$1$bailout(7, t5, i, 0, 0);
+  t3 = $.random();
+  if (typeof t3 !== 'number') return this.initStrip$1$bailout(8, t5, i, t3, 0);
+  var t7 = $.toInt(t3 * 24 + 12);
+  var t8 = t5.length;
+  if (i < 0 || i >= t8) throw $.ioore(i);
+  t5[i] = t7;
+ },
+ initStrip$1$bailout: function(state, env0, env1, env2, env3) {
+  switch (state) {
+    case 1:
+      var i = env0;
+      t1 = env1;
+      break;
+    case 2:
+      i = env0;
+      t1 = env1;
+      t2 = env2;
+      break;
+    case 3:
+      i = env0;
+      t1 = env1;
+      t3 = env2;
+      t2 = env3;
+      break;
+    case 4:
+      i = env0;
+      t1 = env1;
+      break;
+    case 5:
+      i = env0;
+      t1 = env1;
+      break;
+    case 6:
+      i = env0;
+      t4 = env1;
+      t1 = env2;
+      break;
+    case 7:
+      t1 = env0;
+      i = env1;
+      break;
+    case 8:
+      t1 = env0;
+      i = env1;
+      t5 = env2;
+      break;
+  }
+  switch (state) {
+    case 0:
+      var t1 = this._stripX;
+    case 1:
+      state = 0;
+      var t2 = $.random();
+    case 2:
+      state = 0;
+      var t3 = this._width;
+    case 3:
+      state = 0;
+      $.indexSet(t1, i, $.mul(t2, t3));
+      t1 = this._stripY;
+    case 4:
+      state = 0;
+      $.indexSet(t1, i, -100);
+      t1 = this._dY;
+    case 5:
+      state = 0;
+      var t4 = $.random();
+    case 6:
+      state = 0;
+      $.indexSet(t1, i, $.add($.mul(t4, 7), 3));
+      t1 = this._stripFontSize;
+    case 7:
+      state = 0;
+      var t5 = $.random();
+    case 8:
+      state = 0;
+      $.indexSet(t1, i, $.toInt($.add($.mul(t5, 24), 12)));
+  }
+ },
  initStrips$0: function() {
   var t1 = $.List(90);
   $.setRuntimeTypeInfo(t1, ({E: 'num'}));
@@ -1465,10 +1424,7 @@ $$.Dartrix = {"":
   $.setRuntimeTypeInfo(t1, ({E: 'num'}));
   this._dY = t1;
   for (var i = 0; i < 90; ++i) {
-    $.indexSet(this._stripX, i, $.mul($.random(), this._width));
-    $.indexSet(this._stripY, i, -100);
-    $.indexSet(this._dY, i, $.add($.mul($.random(), 7), 3));
-    $.indexSet(this._stripFontSize, i, $.toInt($.add($.mul($.random(), 24), 12)));
+    this.initStrip$1(i);
   }
  }
 };
@@ -2383,10 +2339,6 @@ $.startRootIsolate = function(entry) {
   $._globalState().set$currentContext(rootContext);
   rootContext.eval$1(entry);
   $._globalState().get$topEventLoop().run$0();
-};
-
-$.NoSuchMethodException$4 = function(_receiver, _functionName, _arguments, existingArgumentNames) {
-  return new $.NoSuchMethodException(existingArgumentNames, _arguments, _functionName, _receiver);
 };
 
 $.iae = function(argument) {
@@ -3416,7 +3368,7 @@ $._MessagePortEventsImpl$1 = function(_ptr) {
 };
 
 $.Dartrix$0 = function() {
-  return new $.Dartrix(0, null, null, null, null, null, null, null, null);
+  return new $.Dartrix(null, null, null, null, null, null, null, null, null);
 };
 
 $.removeLast = function(receiver) {
@@ -3618,6 +3570,10 @@ $._AbstractWorkerEventsImpl$1 = function(_ptr) {
   return new $._AbstractWorkerEventsImpl(_ptr);
 };
 
+$.lt = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a < b) : $.lt$slow(a, b);
+};
+
 $.unwrapException = function(ex) {
   if ("dartException" in ex) return ex.dartException;
   var message = (ex.message);
@@ -3648,10 +3604,6 @@ $.unwrapException = function(ex) {
   return ex;
 };
 
-$.lt = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a < b) : $.lt$slow(a, b);
-};
-
 $.shl = function(a, b) {
   if ($.checkNumbers(a, b) === true) {
     a = (a);
@@ -3666,6 +3618,10 @@ $.shl = function(a, b) {
 $.ceil = function(receiver) {
   if (!(typeof receiver === 'number')) return receiver.ceil$0();
   return Math.ceil(receiver);
+};
+
+$.NoSuchMethodException$4 = function(_receiver, _functionName, _arguments, existingArgumentNames) {
+  return new $.NoSuchMethodException(existingArgumentNames, _arguments, _functionName, _receiver);
 };
 
 $._computeLoadLimit = function(capacity) {
