@@ -9,15 +9,13 @@ void main() {
 final num _STRIPCOUNT = 90;
 final String MESSAGE = "Enter in the Dartrix";
 final num MESSAGE_DELAY = 3000;
+final List<String> _COLORS = const ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
+final List<String> _LETTERS = const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
 class Dartrix {
   
-  List<String> _colors;
-  List<String>  _letters;
-
   CanvasElement _canvas;
   CanvasRenderingContext2D _ctx;
-  //num _height;
-  //num _width;
   // TODO objet Strip
   List<num> _stripFontSize;
   List<num> _stripX;
@@ -27,8 +25,6 @@ class Dartrix {
   int _startTime = 0;
   
   Dartrix(){
-    _colors =  ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
-    _letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     _stripFontSize = new List<num>(_STRIPCOUNT);
     _stripX = new List<num>(_STRIPCOUNT);
     _stripY = new List<num>(_STRIPCOUNT);
@@ -77,20 +73,20 @@ class Dartrix {
   
   drawStrip(x, y) {
     for (var k = 0; k <= 20; k++) {
-      var randChar = _letters[(Math.random()*_letters.length).toInt()];
+      var randChar = _LETTERS[(Math.random()*_LETTERS.length).toInt()];
       switch (k) {
       case 0:
-        _ctx.fillStyle = _colors[0]; break;
+        _ctx.fillStyle = _COLORS[0]; break;
       case 1:
-        _ctx.fillStyle = _colors[1]; break;
+        _ctx.fillStyle = _COLORS[1]; break;
       case 3:
-        _ctx.fillStyle = _colors[2]; break;
+        _ctx.fillStyle = _COLORS[2]; break;
       case 7:
-        _ctx.fillStyle = _colors[3]; break;
+        _ctx.fillStyle = _COLORS[3]; break;
       case 13:
-        _ctx.fillStyle = _colors[4]; break;
+        _ctx.fillStyle = _COLORS[4]; break;
       case 17:
-        _ctx.fillStyle = _colors[5]; break;
+        _ctx.fillStyle = _COLORS[5]; break;
       }
       _ctx.fillText(randChar, x, y);
       y -= _stripFontSize[k];
