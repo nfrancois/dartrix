@@ -105,8 +105,8 @@ class Dartrix {
   }
 
   onResize() {
-    _canvas.height = _height = window.screen.height;
-    _canvas.width = _width = _canvas.width = window.screen.width;
+    _canvas.height = _height = window.innerHeight;
+    _canvas.width = _width = _canvas.width = window.innerWidth;
   }  
   
   run(){
