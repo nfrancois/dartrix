@@ -6,11 +6,12 @@ void main() {
   new Dartrix().run();
 }
 
-final num _STRIPCOUNT = 90;
+final num _STRIP_NUMBER = 90;
 final String MESSAGE = "Welcome to the Dartrix";
-final num MESSAGE_DELAY = 3000;
+final num MESSAGE_DELAY = 5000;
 final List<String> _COLORS = const ['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728'];
-final List<String> _LETTERS = const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+final List<String> _SYMBOLS = const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', //
+                                     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ];
 
 class Dartrix {
   
@@ -27,11 +28,11 @@ class Dartrix {
   int _startTime;
   
   initStrips(){
-    _stripFontSize = new List<num>(_STRIPCOUNT);
-    _stripX = new List<num>(_STRIPCOUNT);
-    _stripY = new List<num>(_STRIPCOUNT);
-    _dY = new List<num>(_STRIPCOUNT);
-    for (var i = 0; i < _STRIPCOUNT; i++) {
+    _stripFontSize = new List<num>(_STRIP_NUMBER);
+    _stripX = new List<num>(_STRIP_NUMBER);
+    _stripY = new List<num>(_STRIP_NUMBER);
+    _dY = new List<num>(_STRIP_NUMBER);
+    for (var i = 0; i < _STRIP_NUMBER; i++) {
       initStrip(i);
     }
   }
@@ -52,7 +53,7 @@ class Dartrix {
       var alpha = remainingTime/MESSAGE_DELAY;
       showMessage(alpha);
     }
-    for(var i=0; i<_STRIPCOUNT; i++){
+    for(var i=0; i<_STRIP_NUMBER; i++){
       var size = _stripFontSize[i];
       _ctx.font = '${size}px MatrixCode';
       _ctx.textBaseline = 'top';
@@ -77,7 +78,7 @@ class Dartrix {
   
   drawStrip(x, y) {
     for (var k = 0; k <= 20; k++) {
-      var randChar = _LETTERS[(Math.random()*_LETTERS.length).toInt()];
+      var randChar = _SYMBOLS[(Math.random()*_SYMBOLS.length).toInt()];
       switch (k) {
       case 0:
         _ctx.fillStyle = _COLORS[0]; break;
@@ -98,7 +99,7 @@ class Dartrix {
   }
   
   showMessage(double alpha){
-    _ctx.font = 'bold 75px MatrixCode';
+    _ctx.font = 'bold 75px Verdana';
     _ctx.fillStyle = 'rgba(67,199,40, ${alpha})';
     _ctx.fillText(MESSAGE , _width/2, _height/2-100);
   }
@@ -106,7 +107,6 @@ class Dartrix {
   onResize() {
     _canvas.height = _height = window.screen.height;
     _canvas.width = _width = _canvas.width = window.screen.width;
-    //_canvas.width = _width;
   }  
   
   run(){

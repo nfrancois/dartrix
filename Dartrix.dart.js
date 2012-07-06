@@ -1046,16 +1046,16 @@ $$.Dartrix = {"":
   this._canvas.set$width(t1);
  },
  showMessage$1: function(alpha) {
-  this._ctx.set$font('bold 75px MatrixCode');
+  this._ctx.set$font('bold 75px Verdana');
   var t1 = 'rgba(67,199,40, ' + $.S(alpha) + ')';
   this._ctx.set$fillStyle(t1);
   this._ctx.fillText$3('Welcome to the Dartrix', $.div(this._width, 2), $.sub($.div(this._height, 2), 100));
  },
  drawStrip$2: function(x, y) {
   for (var k = 0; k <= 20; ++k) {
-    var t1 = $.toInt($.mul($.random(), 26));
+    var t1 = $.toInt($.mul($.random(), 36));
     if (t1 !== (t1 | 0)) throw $.iae(t1);
-    if (t1 < 0 || t1 >= 26) throw $.ioore(t1);
+    if (t1 < 0 || t1 >= 36) throw $.ioore(t1);
     t1 = $.CTC2[t1];
     switch (k) {
       case 0:
@@ -1100,7 +1100,7 @@ $$.Dartrix = {"":
   var t1 = this._startTime;
   if (typeof t1 !== 'number') return this.draw$1$bailout(2, time, t1, 0, 0);
   t1 = time - t1;
-  t1 < 3000 && this.showMessage$1((3000 - t1) / 3000);
+  t1 < 5000 && this.showMessage$1((5000 - t1) / 5000);
   for (var i = 0; i < 90; ++i) {
     t1 = this._stripFontSize;
     if (typeof t1 !== 'string' && (typeof t1 !== 'object' || t1 === null || (t1.constructor !== Array && !t1.is$JavaScriptIndexingBehavior()))) return this.draw$1$bailout(4, t1, i, 0, 0);
@@ -1222,7 +1222,7 @@ $$.Dartrix = {"":
         switch (state) {
           case 0:
           case 3:
-            if (state == 3 || (state == 0 && $.ltB($.sub(time, t1), 3000))) {
+            if (state == 3 || (state == 0 && $.ltB($.sub(time, t1), 5000))) {
               switch (state) {
                 case 0:
                   t1 = this._startTime;
@@ -1230,7 +1230,7 @@ $$.Dartrix = {"":
                   state = 0;
                   t1 = $.sub(time, t1);
                   if (typeof t1 !== 'number') throw $.iae(t1);
-                  this.showMessage$1((3000 - t1) / 3000);
+                  this.showMessage$1((5000 - t1) / 5000);
               }
             }
         }
@@ -3867,11 +3867,11 @@ Isolate.makeConstantList = function(list) {
 $.CTC = Isolate.makeConstantList([]);
 $.CTC7 = new Isolate.$isolateProperties.Object();
 $.CTC3 = Isolate.makeConstantList(['#cefbe4', '#81ec72', '#5cd646', '#54d13c', '#4ccc32', '#43c728']);
+$.CTC2 = Isolate.makeConstantList(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
 $.CTC4 = new Isolate.$isolateProperties.JSSyntaxRegExp(false, false, '^#[_a-zA-Z]\\w*$');
 $.CTC6 = new Isolate.$isolateProperties._DeletedKeySentinel();
 $.CTC5 = new Isolate.$isolateProperties.JSSyntaxRegExp(false, false, 'Chrome|DumpRenderTree');
 $.CTC0 = new Isolate.$isolateProperties.NullPointerException(Isolate.$isolateProperties.CTC, null);
-$.CTC2 = Isolate.makeConstantList(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']);
 $.CTC1 = new Isolate.$isolateProperties.NoMoreElementsException();
 $.CTC8 = new Isolate.$isolateProperties.EmptyQueueException();
 $._getTypeNameOf = null;
