@@ -1,5 +1,5 @@
 #import('dart:html');
-//#import('dart:math');
+#import('dart:math');
 
 // Original code from : https://github.com/hendo13/HTML5-Matrix-Code-Rain
 
@@ -25,10 +25,12 @@ class Dartrix {
   List<num> _stripX;
   List<num> _stripY;
   List<num> _dY;
-  
+  final Random _randommer;
   int _startTime;
   
-  initStrips(){
+  Dartrix() : _randommer = new Random(); 
+  
+  initStrips() {
     _stripFontSize = new List<num>(_STRIP_NUMBER);
     _stripX = new List<num>(_STRIP_NUMBER);
     _stripY = new List<num>(_STRIP_NUMBER);
@@ -39,10 +41,10 @@ class Dartrix {
   }
   
   initStrip(num i){
-    _stripX[i] = (Math.random()*_width);
+    _stripX[i] = (_randommer.nextDouble()*_width);
     _stripY[i] = -100;
-    _dY[i] = (Math.random()*7)+3;
-    _stripFontSize[i] =  ((Math.random()*24)+12).toInt();   
+    _dY[i] = (_randommer.nextDouble()*7)+3;
+    _stripFontSize[i] = _randommer.nextInt(24) + 12;   
   }
   
   bool draw(int time){
@@ -79,21 +81,23 @@ class Dartrix {
   
   drawStrip(x, y) {
     for (var k = 0; k <= 20; k++) {
-      var randChar = _SYMBOLS[(Math.random()*_SYMBOLS.length).toInt()];
+      var randChar = _SYMBOLS[_randommer.nextInt(_SYMBOLS.length-1)];
+      var color;
       switch (k) {
       case 0:
-        _ctx.fillStyle = _COLORS[0]; break;
+        color = _COLORS[0]; break;
       case 1:
-        _ctx.fillStyle = _COLORS[1]; break;
+        color = _COLORS[1]; break;
       case 3:
-        _ctx.fillStyle = _COLORS[2]; break;
+        color = _COLORS[2]; break;
       case 7:
-        _ctx.fillStyle = _COLORS[3]; break;
+        color = _COLORS[3]; break;
       case 13:
-        _ctx.fillStyle = _COLORS[4]; break;
+        color = _COLORS[4]; break;
       case 17:
-        _ctx.fillStyle = _COLORS[5]; break;
+        color = _COLORS[5]; break;
       }
+      _ctx.fillStyle = color;
       _ctx.fillText(randChar, x, y);
       y -= _stripFontSize[k];
      }
