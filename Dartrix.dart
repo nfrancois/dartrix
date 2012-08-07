@@ -58,9 +58,9 @@ class Dartrix {
     }
     for(var i=0; i<_STRIP_NUMBER; i++){
       var size = _stripFontSize[i];
-      _ctx.font = '${size}px MatrixCode';
-      _ctx.textBaseline = 'top';
-      _ctx.textAlign = 'center';
+      _ctx..font = '${size}px MatrixCode'
+          ..textBaseline = 'top'
+          ..textAlign = 'center';
       if (_stripY[i] > _height) {
         initStrip(i);
       } else {
@@ -73,10 +73,10 @@ class Dartrix {
   }
   
   clear(){
-    _ctx.clearRect(0, 0, _canvas.width, _canvas.height);
-    _ctx.shadowOffsetX = _ctx.shadowOffsetY = 0;
-    _ctx.shadowBlur = 8;
-    _ctx.shadowColor = '#94f475';
+    _ctx..clearRect(0, 0, _canvas.width, _canvas.height)
+        ..shadowOffsetX = _ctx.shadowOffsetY = 0
+        ..shadowBlur = 8
+        ..shadowColor = '#94f475';
   }
   
   drawStrip(x, y) {
@@ -97,21 +97,21 @@ class Dartrix {
       case 17:
         color = _COLORS[5]; break;
       }
-      _ctx.fillStyle = color;
-      _ctx.fillText(randChar, x, y);
+      _ctx..fillStyle = color
+          ..fillText(randChar, x, y);
       y -= _stripFontSize[k];
      }
   }
   
   showMessage(double alpha){
-    _ctx.font = 'bold 75px Verdana';
-    _ctx.fillStyle = 'rgba(67,199,40, ${alpha})';
-    _ctx.fillText(MESSAGE , _width/2, _height/2-100);
+    _ctx..font = 'bold 75px Verdana'
+        ..fillStyle = 'rgba(67,199,40, ${alpha})'
+        ..fillText(MESSAGE , _width/2, _height/2-100);
   }
 
   onResize() {
-    _canvas.height = _height = window.innerHeight;
-    _canvas.width = _width = _canvas.width = window.innerWidth;
+    _canvas..height = _height = window.innerHeight
+           ..width = _width = _canvas.width = window.innerWidth;
   }  
   
   run(){
@@ -119,8 +119,8 @@ class Dartrix {
     _ctx = _canvas.context2d;
     onResize();
     initStrips();
-    window.on.resize.add((event) => onResize(), true);
-    window.requestAnimationFrame(draw);
+    window..on.resize.add((event) => onResize(), true)
+           ..requestAnimationFrame(draw);
   }
   
 }
