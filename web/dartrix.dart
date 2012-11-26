@@ -1,5 +1,7 @@
-#import('dart:html');
-#import('dart:math');
+library dartrix;
+
+import 'dart:html';
+import 'dart:math';
 
 // Original code from : https://github.com/hendo13/HTML5-Matrix-Code-Rain
 
@@ -26,7 +28,7 @@ class Dartrix {
   List<num> _stripY;
   List<num> _dY;
   final Random _randommer;
-  int _startTime;
+  num _startTime;
   
   Dartrix() : _randommer = new Random(); 
   
@@ -47,7 +49,7 @@ class Dartrix {
     _stripFontSize[i] = _randommer.nextInt(24) + 12;   
   }
   
-  bool draw(int time){
+  void draw(num time){
     clear();
     if(_startTime == null){
       _startTime = time;
@@ -69,7 +71,6 @@ class Dartrix {
       _stripY[i] += _dY[i];      
     }
     window.requestAnimationFrame(draw);
-    return true;
   }
   
   clear(){
