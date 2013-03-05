@@ -1,5 +1,4 @@
 name:  Dartrix
 description:  Matrix rain with Dart. Inspired by https://github.com/hendo13/HTML5-Matrix-Code-Rain/
-
-#dependencies:
-#  unittest: { sdk: unittest }
+dependencies:
+  browser: any

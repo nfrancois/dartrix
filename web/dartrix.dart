@@ -98,6 +98,7 @@ class Dartrix {
       case 17:
         color = _COLORS[5]; break;
       }
+      //print('$randChar $x $y');
       _ctx..fillStyle = color
           ..fillText(randChar, x, y);
       y -= _stripFontSize[k];
@@ -120,7 +121,7 @@ class Dartrix {
     _ctx = _canvas.context2d;
     onResize();
     initStrips();
-    window..on.resize.add((event) => onResize(), true)
+    window..onResize.listen((event) => onResize())
            ..requestAnimationFrame(draw);
   }
   
