@@ -1,4 +1,4 @@
 *.js*
-*.js*
+pubspec.lock
 packages
 pubspec.lock
