@@ -70,7 +70,7 @@ class Dartrix {
       }
       _stripY[i] += _dY[i];      
     }
-    window.requestAnimationFrame(draw);
+    window.animationFrame.then(draw);
   }
   
   clear(){
@@ -122,7 +122,7 @@ class Dartrix {
     onResize();
     initStrips();
     window..onResize.listen((event) => onResize())
-           ..requestAnimationFrame(draw);
+           ..animationFrame.then(draw);
   }
   
 }
