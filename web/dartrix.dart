@@ -117,8 +117,8 @@ class Dartrix {
   }  
   
   run(){
-    _canvas = document.query("#canvas");
-    _ctx = _canvas.context2d;
+    _canvas = document.querySelector("#canvas");
+    _ctx = _canvas.context2D;
     onResize();
     initStrips();
     window..onResize.listen((event) => onResize())
